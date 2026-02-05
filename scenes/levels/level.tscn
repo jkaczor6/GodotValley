@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://dkaf0otbgtrp5"]
 
+[ext_resource type="Texture2D" uid="uid://bxiv8s4m617na" path="res://icon.svg" id="1_bovvr"]
 [ext_resource type="PackedScene" uid="uid://b0mnopqlx5dix" path="res://scenes/characters/player.tscn" id="2_b2cq8"]
 
 [node name="Level" type="Node2D" unique_id=1495827806]
 
 [node name="Layers" type="Node2D" parent="." unique_id=1077443371]
+
+[node name="Icon" type="Sprite2D" parent="Layers" unique_id=659473294]
+position = Vector2(261, 280)
+texture = ExtResource("1_bovvr")
 
 [node name="Objects" type="Node2D" parent="." unique_id=1096759715]
 y_sort_enabled = true
