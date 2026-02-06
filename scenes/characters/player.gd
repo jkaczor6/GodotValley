@@ -1,23 +1,29 @@
 extends CharacterBody2D
 
 var direction: Vector2
+var last_direction: Vector2
 var speed := 50
 var can_move : bool = true
 @onready var move_state_machine = $Animation/AnimationTree.get("parameters/MoveStateMachine/playback")
 @onready var tool_state_machine = $Animation/AnimationTree.get("parameters/ToolStateMachine/playback")
-var current_tool: Enum.Tool = Enum.Tool.AXE
-var current_seed: Enum.Seed = Enum.Seed.TOMATO
+var current_tool: Enum.Tool = Enum.Tool.WATER
+var current_seed: Enum.Seed
+
+signal tool_use(tool: Enum.Tool, pos: Vector2)
 
 func _physics_process(_delta: float) -> void:
 	if can_move:
 		get_basic_input()
 		move()
 		animate()
+	if direction:
+		last_direction = direction
 
 func get_basic_input():
 	if Input.is_action_just_pressed("tool_forward") or Input.is_action_just_pressed("tool_backward"):
 		var dir = Input.get_axis("tool_backward", "tool_forward")
 		current_tool = posmod(current_tool + int(dir), Enum.Tool.size()) as Enum.Tool
+		print(current_tool)
 	if Input.is_action_just_pressed("seed_forward"):
 		current_seed = posmod(current_seed + 1, Enum.Seed.size()) as Enum.Seed
 	
@@ -43,11 +49,7 @@ func animate():
 		move_state_machine.travel('Idle')
 
 func tool_use_emit():
-	print('tool')
-
-
-
-
+	tool_use.emit(current_tool, position + last_direction * 16 + Vector2(0,4))
 
 func _on_animation_tree_animation_started(anim_name: StringName) -> void:
 	can_move = false
