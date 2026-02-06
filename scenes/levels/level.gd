@@ -13,17 +13,18 @@ func _on_player_tool_use(tool: Enum.Tool, pos: Vector2) -> void:
 			var cell = $Layers/GrassLayer.get_cell_tile_data(grid_coord) as TileData
 			if cell and cell.get_custom_data('Farmable'):
 				$Layers/SoilLayer.set_cells_terrain_connect([grid_coord], 0, 0)
-			
 		Enum.Tool.WATER:
 			if has_soil:
 				$Layers/SoilWaterLayer.set_cell(grid_coord, 0, Vector2i(randi_range(0,2),0))
-			
 		Enum.Tool.FISH:
 			if not grid_coord in $Layers/GrassLayer.get_used_cells():
 				pass
-			
 		Enum.Tool.SEED:
 			if has_soil and grid_coord not in used_cells:
 				var plant = plant_scene.instantiate()
 				plant.setup(grid_coord, $Objects)
 				used_cells.append(grid_coord)
+		Enum.Tool.AXE, Enum.Tool.SWORD:
+			for object in get_tree().get_nodes_in_group('Objects'):
+				if object.position.distance_to(pos) < 20:
+					object.hit(tool)

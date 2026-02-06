@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bs2fkl7jajt3g"]
+
+[ext_resource type="Script" uid="uid://bwqap460ah2p3" path="res://scenes/objects/tree.gd" id="1_5qchx"]
+[ext_resource type="PackedScene" uid="uid://bqbtmbdlc8vnp" path="res://scenes/vfx/flash_sprite_2d.tscn" id="2_eogu4"]
+[ext_resource type="Shader" uid="uid://bsa4a4fnyvjon" path="res://shaders/flash.tres" id="3_7yu6v"]
+[ext_resource type="Texture2D" uid="uid://dyxbmdangl8xx" path="res://graphics/plants/stump.png" id="4_7yu6v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5qchx"]
+radius = 8.0
+height = 22.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mbbxw"]
+resource_local_to_scene = true
+shader = ExtResource("3_7yu6v")
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)
+shader_parameter/Progress = 0.0
+
+[node name="Tree" type="StaticBody2D" unique_id=1155389888 groups=["Objects"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_5qchx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=375170339]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_5qchx")
+
+[node name="Stump" type="Sprite2D" parent="." unique_id=2131432165]
+position = Vector2(0, 10.5)
+texture = ExtResource("4_7yu6v")
+
+[node name="FlashSprite2D" parent="." unique_id=1499085669 instance=ExtResource("2_eogu4")]
+material = SubResource("ShaderMaterial_mbbxw")
+
+[node name="AppleSpawnPositions" type="Node2D" parent="." unique_id=932720838]
+
+[node name="Marker2D" type="Marker2D" parent="AppleSpawnPositions" unique_id=1490735217]
+position = Vector2(11, 1)
+
+[node name="Marker2D2" type="Marker2D" parent="AppleSpawnPositions" unique_id=1970434013]
+position = Vector2(-8, 7)
+
+[node name="Marker2D3" type="Marker2D" parent="AppleSpawnPositions" unique_id=786653371]
+position = Vector2(1, -2)
+
+[node name="Marker2D4" type="Marker2D" parent="AppleSpawnPositions" unique_id=1714954602]
+position = Vector2(6, -8)
+
+[node name="Marker2D5" type="Marker2D" parent="AppleSpawnPositions" unique_id=1978010971]
+position = Vector2(-11, 0)
+
+[node name="Marker2D6" type="Marker2D" parent="AppleSpawnPositions" unique_id=713941767]
+position = Vector2(-4, -6)
+
+[node name="Marker2D7" type="Marker2D" parent="AppleSpawnPositions" unique_id=1664872746]
+position = Vector2(7, 9)
+
+[node name="Apples" type="Node2D" parent="." unique_id=1169059478]
