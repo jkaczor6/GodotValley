@@ -33,3 +33,10 @@ func create_apples(num: int):
 func get_apple():
 	if $Apples.get_children():
 		$Apples.get_children().pick_random().queue_free()
+
+func reset():
+	if health > 0:
+		for apple in $Apples.get_children():
+			apple.queue_free()
+		create_apples(randi_range(0,3))
+		health = 3

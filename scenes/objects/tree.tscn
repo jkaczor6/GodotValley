@@ -9,7 +9,7 @@
 radius = 8.0
 height = 22.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mbbxw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7yu6v"]
 resource_local_to_scene = true
 shader = ExtResource("3_7yu6v")
 shader_parameter/ColorParameter = Color(1, 1, 1, 1)
@@ -29,7 +29,7 @@ position = Vector2(0, 10.5)
 texture = ExtResource("4_7yu6v")
 
 [node name="FlashSprite2D" parent="." unique_id=1499085669 instance=ExtResource("2_eogu4")]
-material = SubResource("ShaderMaterial_mbbxw")
+material = SubResource("ShaderMaterial_7yu6v")
 
 [node name="AppleSpawnPositions" type="Node2D" parent="." unique_id=932720838]
 
