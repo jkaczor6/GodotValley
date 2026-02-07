@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bqbtmbdlc8vnp"]
 
 [ext_resource type="Shader" uid="uid://bsa4a4fnyvjon" path="res://shaders/flash.tres" id="1_etx6k"]
-[ext_resource type="Texture2D" uid="uid://d3pi6mohcmq4p" path="res://graphics/plants/tree.png" id="2_6twfp"]
 [ext_resource type="Script" uid="uid://cukk0ys4u71n3" path="res://scenes/vfx/flash_sprite_2d.gd" id="3_6twfp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ak7js"]
@@ -12,7 +11,6 @@ shader_parameter/Progress = 0.0
 
 [node name="FlashSprite2D" type="Sprite2D" unique_id=1499085669]
 material = SubResource("ShaderMaterial_ak7js")
-texture = ExtResource("2_6twfp")
 hframes = 2
 frame = 1
 script = ExtResource("3_6twfp")
