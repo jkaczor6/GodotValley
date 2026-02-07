@@ -46,6 +46,10 @@ func day_restart():
 	tween.tween_property($Overlay/CanvasLayer/DayTransitionLayer.material, "shader_parameter/progress", 0.0, 1.0)
 
 func level_reset():
+	
+	for plant in get_tree().get_nodes_in_group('Plants'):
+		plant.grow(plant.coord in $Layers/SoilWaterLayer.get_used_cells())
+	$Layers/SoilWaterLayer.clear()
 	$Timers/DayTimer.start()
 	for object in get_tree().get_nodes_in_group('Objects'):
 		if 'reset' in object:
