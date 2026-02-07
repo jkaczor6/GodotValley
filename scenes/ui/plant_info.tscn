@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://kxdk3p0qgcs4"]
+
+[ext_resource type="Texture2D" uid="uid://csy41adf2s4wh" path="res://graphics/icons/pumpkin.png" id="1_r3qta"]
+[ext_resource type="Theme" uid="uid://cgjrxl33c60gt" path="res://scenes/ui/game_theme.tres" id="1_uxb0r"]
+[ext_resource type="Script" uid="uid://chbapa3ojcvm4" path="res://scenes/ui/plant_info.gd" id="2_kscek"]
+[ext_resource type="Texture2D" uid="uid://k4r0km103lsj" path="res://graphics/ui/v_bar.png" id="2_uxb0r"]
+
+[node name="PlantInfo" type="PanelContainer" unique_id=1025700156]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_uxb0r")
+script = ExtResource("2_kscek")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1443953853]
+layout_mode = 2
+
+[node name="IconTexture" type="TextureRect" parent="HBoxContainer" unique_id=1483387023]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture = ExtResource("1_r3qta")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=631058450]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1166105648]
+layout_mode = 2
+text = "Pumpkin"
+
+[node name="GrowthBar" type="TextureProgressBar" parent="HBoxContainer/VBoxContainer" unique_id=2082391632]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+value = 10.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_uxb0r")
+texture_progress = ExtResource("2_uxb0r")
+tint_under = Color(0.09019608, 0.09019608, 0.09019608, 1)
+tint_progress = Color(0.56078434, 0.8392157, 0.18431373, 1)
+
+[node name="DeathBar" type="TextureProgressBar" parent="HBoxContainer/VBoxContainer" unique_id=1241145491]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+value = 22.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_uxb0r")
+texture_progress = ExtResource("2_uxb0r")
+tint_under = Color(0.09019608, 0.09019608, 0.09019608, 1)
+tint_progress = Color(0.7764706, 0.26666668, 0.11372549, 1)

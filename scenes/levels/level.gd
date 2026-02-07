@@ -1,6 +1,7 @@
 extends Node2D
 
 var plant_scene = preload("res://scenes/objects/plant.tscn")
+var plant_info_scene = preload("res://scenes/ui/plant_info.tscn")
 var used_cells: Array[Vector2i]
 
 @export var daytime_color: Gradient
@@ -26,12 +27,20 @@ func _on_player_tool_use(tool: Enum.Tool, pos: Vector2) -> void:
 				var plant_res = PlantResource.new()
 				plant_res.setup($Objects/Player.current_seed)
 				var plant = plant_scene.instantiate()
-				plant.setup(grid_coord, $Objects, plant_res)
+				plant.setup(grid_coord, $Objects, plant_res, plant_death)
 				used_cells.append(grid_coord)
+				
+				var plant_info = plant_info_scene.instantiate()
+				plant_info.setup(plant_res)
+				$Overlay/CanvasLayer/PlantInfoContainer.add(plant_info)
+				
 		Enum.Tool.AXE, Enum.Tool.SWORD:
 			for object in get_tree().get_nodes_in_group('Objects'):
 				if object.position.distance_to(pos) < 20:
 					object.hit(tool)
+
+func _on_player_diagnose() -> void:
+	$Overlay/CanvasLayer/PlantInfoContainer.visible = not $Overlay/CanvasLayer/PlantInfoContainer.visible
 
 func _process(_delta: float) -> void:
 	var daytime_point = 1 - ($Timers/DayTimer.time_left / $Timers/DayTimer.wait_time)
@@ -52,7 +61,11 @@ func level_reset():
 	for plant in get_tree().get_nodes_in_group('Plants'):
 		plant.grow(plant.coord in $Layers/SoilWaterLayer.get_used_cells())
 	$Layers/SoilWaterLayer.clear()
+	$Overlay/CanvasLayer/PlantInfoContainer.update_all()
 	$Timers/DayTimer.start()
 	for object in get_tree().get_nodes_in_group('Objects'):
 		if 'reset' in object:
 			object.reset()
+
+func plant_death(coord: Vector2i):
+	used_cells.erase(coord)

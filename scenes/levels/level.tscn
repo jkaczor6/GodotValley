@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bs2fkl7jajt3g" path="res://scenes/objects/tree.tscn" id="7_mbbpy"]
 [ext_resource type="PackedScene" uid="uid://cdb6t3bbycfyf" path="res://scenes/objects/simple_object.tscn" id="8_ouxo3"]
 [ext_resource type="Shader" uid="uid://cy8v8jo65tr41" path="res://shaders/circle_transition.gdshader" id="9_icy5c"]
+[ext_resource type="PackedScene" uid="uid://b3tnsha7n5b84" path="res://scenes/ui/plant_info_container.tscn" id="10_rmjfq"]
 
 [sub_resource type="Gradient" id="Gradient_ouxo3"]
 offsets = PackedFloat32Array(0, 0.2369146, 0.3966942, 1)
@@ -882,6 +883,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.023529412, 0.023529412, 0.023529412, 1)
 
+[node name="PlantInfoContainer" parent="Overlay/CanvasLayer" unique_id=1645103057 instance=ExtResource("10_rmjfq")]
+
 [node name="Timers" type="Node" parent="." unique_id=630340350]
 
 [node name="DayTimer" type="Timer" parent="Timers" unique_id=614106153]
@@ -889,4 +892,5 @@ wait_time = 300.0
 one_shot = true
 autostart = true
 
+[connection signal="diagnose" from="Objects/Player" to="." method="_on_player_diagnose"]
 [connection signal="tool_use" from="Objects/Player" to="." method="_on_player_tool_use"]
