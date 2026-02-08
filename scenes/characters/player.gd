@@ -31,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 
 func get_fishing_input():
 	if Input.is_action_just_pressed("action"):
-		pass
+		$FishingGame.action()
 
 func get_basic_input():
 	if Input.is_action_just_pressed("tool_forward") or Input.is_action_just_pressed("tool_backward"):
@@ -75,8 +75,14 @@ func tool_use_emit():
 	tool_use.emit(current_tool, position + last_direction * 16 + Vector2(0,4))
 
 func start_fishing():
+	$FishingGame.reveal()
 	current_state = Enum.State.FISHING
 	$Animation/AnimationTree.set("parameters/FishBlend/blend_amount", 1)
+
+func stop_fishing():
+	can_move = true
+	current_state = Enum.State.DEFAULT
+	$Animation/AnimationTree.set("parameters/FishBlend/blend_amount", 0)
 
 func _on_animation_tree_animation_started(_anim_name: StringName) -> void:
 	can_move = false

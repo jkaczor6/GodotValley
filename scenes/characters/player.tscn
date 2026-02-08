@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dbmbhotl3mjb4" path="res://scenes/characters/player.gd" id="2_76oj4"]
 [ext_resource type="Texture2D" uid="uid://bp3sfnx2rutrs" path="res://graphics/characters/main/main_basic.png" id="3_6eyoc"]
 [ext_resource type="PackedScene" uid="uid://bcg37n0ysrp6w" path="res://scenes/ui/tool_ui.tscn" id="3_76oj4"]
+[ext_resource type="PackedScene" uid="uid://qspw5wxn75gc" path="res://scenes/ui/fishing_game.tscn" id="4_dyp2m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_atpat"]
 radius = 4.0
@@ -1528,11 +1529,11 @@ nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_qgnko")
 nodes/MoveStateMachine/position = Vector2(302.65524, -123.22713)
 nodes/ToolOneShot/node = SubResource("AnimationNodeOneShot_yewv4")
 nodes/ToolOneShot/position = Vector2(620, -120)
-nodes/Blend2/node = SubResource("AnimationNodeBlend2_76oj4")
-nodes/Blend2/position = Vector2(1020, -120)
+nodes/FishBlend/node = SubResource("AnimationNodeBlend2_76oj4")
+nodes/FishBlend/position = Vector2(1020, -120)
 nodes/FishIdleBlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_aqa0x")
 nodes/FishIdleBlendSpace2D/position = Vector2(800, 0)
-node_connections = [&"output", 0, &"Blend2", &"ToolOneShot", 0, &"MoveStateMachine", &"ToolOneShot", 1, &"ToolStateMachine", &"Blend2", 0, &"ToolOneShot", &"Blend2", 1, &"FishIdleBlendSpace2D"]
+node_connections = [&"output", 0, &"FishBlend", &"ToolOneShot", 0, &"MoveStateMachine", &"ToolOneShot", 1, &"ToolStateMachine", &"FishBlend", 0, &"ToolOneShot", &"FishBlend", 1, &"FishIdleBlendSpace2D"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1221615893 groups=["Player"]]
 collision_layer = 2
@@ -1543,7 +1544,6 @@ script = ExtResource("2_76oj4")
 texture = ExtResource("3_6eyoc")
 hframes = 33
 vframes = 4
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=966384012]
 shape = SubResource("CapsuleShape2D_atpat")
@@ -1570,17 +1570,21 @@ parameters/MoveStateMachine/Walk/blend_position = Vector2(0, 0)
 parameters/ToolOneShot/active = false
 parameters/ToolOneShot/internal_active = false
 parameters/ToolOneShot/request = 0
-parameters/Blend2/blend_amount = 0.0
+parameters/FishBlend/blend_amount = 0.0
 parameters/FishIdleBlendSpace2D/blend_position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=708422854]
 zoom = Vector2(4, 4)
 
 [node name="ToolUI" parent="." unique_id=383167844 instance=ExtResource("3_76oj4")]
+z_index = 2
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=2022611320]
 target_position = Vector2(0, 20)
 collision_mask = 8
+
+[node name="FishingGame" parent="." unique_id=1221989429 instance=ExtResource("4_dyp2m")]
+position = Vector2(40, 0)
 
 [connection signal="animation_finished" from="Animation/AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="animation_started" from="Animation/AnimationTree" to="." method="_on_animation_tree_animation_started"]
