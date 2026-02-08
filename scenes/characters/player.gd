@@ -8,21 +8,30 @@ var can_move : bool = true
 @onready var tool_state_machine = $Animation/AnimationTree.get("parameters/ToolStateMachine/playback")
 var current_tool: Enum.Tool = Enum.Tool.AXE
 var current_seed: Enum.Seed
+var current_state: Enum.State
 
 signal tool_use(tool: Enum.Tool, pos: Vector2)
 signal diagnose
 signal day_change
 
 func _physics_process(_delta: float) -> void:
-	if can_move:
-		get_basic_input()
-		move()
-		animate()
+	match current_state:
+		Enum.State.DEFAULT:
+			if can_move:
+				get_basic_input()
+				move()
+				animate()
+		Enum.State.FISHING:
+			get_fishing_input()
 
 	if direction:
 		last_direction = direction
 		var ray_y = int(direction.y) if not direction.x else 0
 		$RayCast2D.target_position = Vector2(direction.x, ray_y).normalized() * 20
+
+func get_fishing_input():
+	if Input.is_action_just_pressed("action"):
+		pass
 
 func get_basic_input():
 	if Input.is_action_just_pressed("tool_forward") or Input.is_action_just_pressed("tool_backward"):
@@ -55,6 +64,7 @@ func animate():
 		var direction_animation = Vector2(round(direction.x), round(direction.y))
 		$Animation/AnimationTree.set("parameters/MoveStateMachine/Idle/blend_position", direction_animation)
 		$Animation/AnimationTree.set("parameters/MoveStateMachine/Walk/blend_position", direction_animation)
+		$Animation/AnimationTree.set("parameters/FishIdleBlendSpace2D/blend_position", direction_animation)
 		for animation in Data.TOOL_STATE_ANIMATIONS.values():
 			var animation_name : String = "parameters/ToolStateMachine/"+ animation +"/blend_position"
 			$Animation/AnimationTree.set(animation_name, direction_animation)
@@ -64,11 +74,14 @@ func animate():
 func tool_use_emit():
 	tool_use.emit(current_tool, position + last_direction * 16 + Vector2(0,4))
 
-func _on_animation_tree_animation_started(anim_name: StringName) -> void:
+func start_fishing():
+	current_state = Enum.State.FISHING
+	$Animation/AnimationTree.set("parameters/FishBlend/blend_amount", 1)
+
+func _on_animation_tree_animation_started(_anim_name: StringName) -> void:
 	can_move = false
 
-
-func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
 		can_move = true
 
 func day_change_emit():

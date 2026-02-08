@@ -994,31 +994,35 @@ position = Vector2(-149, 481)
 position = Vector2(-149, 481)
 
 [node name="SimpleObject3" parent="Objects" unique_id=157085473 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(31, 467)
-size = 3
+size = 0
 style = 0
 random = true
 
 [node name="SimpleObject4" parent="Objects" unique_id=464652059 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(-36, 416)
+size = 0
 style = 0
 random = true
 
 [node name="SimpleObject5" parent="Objects" unique_id=351454795 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(45, 201)
-size = 1
+size = 0
 style = 0
 random = true
 
 [node name="SimpleObject9" parent="Objects" unique_id=1161524051 instance=ExtResource("8_ouxo3")]
 position = Vector2(131, 213)
+style = 0
 random = true
 
 [node name="SimpleObject10" parent="Objects" unique_id=1588403882 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(72, 165)
-size = 1
+size = 0
 style = 0
 random = true
 
@@ -1035,13 +1039,14 @@ random = true
 
 [node name="SimpleObject14" parent="Objects" unique_id=636422682 instance=ExtResource("8_ouxo3")]
 position = Vector2(321, 278)
-size = 3
+style = 0
 random = true
 
 [node name="SimpleObject15" parent="Objects" unique_id=919594699 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(380, 364)
-size = 0
+size = 1
+style = 0
 random = true
 
 [node name="SimpleObject16" parent="Objects" unique_id=259513319 instance=ExtResource("8_ouxo3")]
@@ -1051,26 +1056,27 @@ size = 1
 random = true
 
 [node name="SimpleObject17" parent="Objects" unique_id=1344727057 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(195, 454)
-size = 0
-style = 0
 random = true
 
 [node name="SimpleObject18" parent="Objects" unique_id=1298932646 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(247, 516)
-style = 0
+size = 1
 random = true
 
 [node name="SimpleObject6" parent="Objects" unique_id=1459402825 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(-21, 300)
-size = 0
+size = 1
 style = 0
 random = true
 
 [node name="SimpleObject7" parent="Objects" unique_id=1096386129 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(-21, 300)
+size = 0
+style = 0
 random = true
 
 [node name="House" parent="Objects" unique_id=1690231218 instance=ExtResource("10_qogh7")]

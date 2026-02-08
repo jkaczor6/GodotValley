@@ -29,7 +29,7 @@ func _on_player_tool_use(tool: Enum.Tool, pos: Vector2) -> void:
 				$Layers/SoilWaterLayer.set_cell(grid_coord, 0, Vector2i(randi_range(0,2),0))
 		Enum.Tool.FISH:
 			if not grid_coord in $Layers/GrassLayer.get_used_cells():
-				pass
+				$Objects/Player.start_fishing()
 		Enum.Tool.SEED:
 			if has_soil and grid_coord not in used_cells:
 				var plant_res = PlantResource.new()

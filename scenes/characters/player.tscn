@@ -972,6 +972,55 @@ _data = {
 &"water_up": SubResource("Animation_g66nw")
 }
 
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_76oj4"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kmyvj"]
+animation = &"fish_idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a2luo"]
+animation = &"fish_idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eir2k"]
+animation = &"fish_idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_inhyd"]
+animation = &"fish_idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wqk1x"]
+animation = &"fish_idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dm10o"]
+animation = &"fish_idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o6auj"]
+animation = &"fish_idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j8g38"]
+animation = &"fish_idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tswxa"]
+animation = &"fish_idle_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_aqa0x"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_kmyvj")
+blend_point_0/pos = Vector2(0, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_a2luo")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_eir2k")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_inhyd")
+blend_point_3/pos = Vector2(0, 1)
+blend_point_4/node = SubResource("AnimationNodeAnimation_wqk1x")
+blend_point_4/pos = Vector2(0, -1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_dm10o")
+blend_point_5/pos = Vector2(1, -1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_o6auj")
+blend_point_6/pos = Vector2(-1, -1)
+blend_point_7/node = SubResource("AnimationNodeAnimation_j8g38")
+blend_point_7/pos = Vector2(-1, 1)
+blend_point_8/node = SubResource("AnimationNodeAnimation_tswxa")
+blend_point_8/pos = Vector2(1, 1)
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2l4js"]
 animation = &"idle_right"
 
@@ -1471,14 +1520,19 @@ transitions = ["Start", "Axe", SubResource("AnimationNodeStateMachineTransition_
 graph_offset = Vector2(55, -57)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_inhyd"]
-nodes/output/position = Vector2(900, -80)
+graph_offset = Vector2(83.014465, -109.66272)
+nodes/output/position = Vector2(1360, -120)
 nodes/ToolStateMachine/node = SubResource("AnimationNodeStateMachine_w5sjy")
 nodes/ToolStateMachine/position = Vector2(300, 60)
 nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_qgnko")
 nodes/MoveStateMachine/position = Vector2(302.65524, -123.22713)
 nodes/ToolOneShot/node = SubResource("AnimationNodeOneShot_yewv4")
 nodes/ToolOneShot/position = Vector2(620, -120)
-node_connections = [&"output", 0, &"ToolOneShot", &"ToolOneShot", 0, &"MoveStateMachine", &"ToolOneShot", 1, &"ToolStateMachine"]
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_76oj4")
+nodes/Blend2/position = Vector2(1020, -120)
+nodes/FishIdleBlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_aqa0x")
+nodes/FishIdleBlendSpace2D/position = Vector2(800, 0)
+node_connections = [&"output", 0, &"Blend2", &"ToolOneShot", 0, &"MoveStateMachine", &"ToolOneShot", 1, &"ToolStateMachine", &"Blend2", 0, &"ToolOneShot", &"Blend2", 1, &"FishIdleBlendSpace2D"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1221615893 groups=["Player"]]
 collision_layer = 2
@@ -1489,6 +1543,7 @@ script = ExtResource("2_76oj4")
 texture = ExtResource("3_6eyoc")
 hframes = 33
 vframes = 4
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=966384012]
 shape = SubResource("CapsuleShape2D_atpat")
@@ -1515,6 +1570,8 @@ parameters/MoveStateMachine/Walk/blend_position = Vector2(0, 0)
 parameters/ToolOneShot/active = false
 parameters/ToolOneShot/internal_active = false
 parameters/ToolOneShot/request = 0
+parameters/Blend2/blend_amount = 0.0
+parameters/FishIdleBlendSpace2D/blend_position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=708422854]
 zoom = Vector2(4, 4)
