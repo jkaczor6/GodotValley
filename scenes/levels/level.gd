@@ -50,6 +50,9 @@ func _on_player_tool_use(tool: Enum.Tool, pos: Vector2) -> void:
 func _on_player_diagnose() -> void:
 	$Overlay/CanvasLayer/PlantInfoContainer.visible = not $Overlay/CanvasLayer/PlantInfoContainer.visible
 
+func _on_player_day_change() -> void:
+	day_restart()
+
 func _ready() -> void:
 	Data.forecast_rain = [true, false].pick_random()
 
@@ -57,8 +60,6 @@ func _process(_delta: float) -> void:
 	var daytime_point = 1 - ($Timers/DayTimer.time_left / $Timers/DayTimer.wait_time)
 	var color = daytime_color.sample(daytime_point).lerp(rain_color, 0.5 if raining else 0.0)
 	$Overlay/DayTimeColor.color = color
-	if Input.is_action_just_pressed("day_change"):
-		day_restart()
 
 func day_restart():
 	var tween = create_tween()

@@ -1489,7 +1489,6 @@ script = ExtResource("2_76oj4")
 texture = ExtResource("3_6eyoc")
 hframes = 33
 vframes = 4
-frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=966384012]
 shape = SubResource("CapsuleShape2D_atpat")
@@ -1521,6 +1520,10 @@ parameters/ToolOneShot/request = 0
 zoom = Vector2(4, 4)
 
 [node name="ToolUI" parent="." unique_id=383167844 instance=ExtResource("3_76oj4")]
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=2022611320]
+target_position = Vector2(0, 20)
+collision_mask = 8
 
 [connection signal="animation_finished" from="Animation/AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="animation_started" from="Animation/AnimationTree" to="." method="_on_animation_tree_animation_started"]
