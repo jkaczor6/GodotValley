@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bs2fkl7jajt3g" path="res://scenes/objects/tree.tscn" id="7_mbbpy"]
 [ext_resource type="PackedScene" uid="uid://cdb6t3bbycfyf" path="res://scenes/objects/simple_object.tscn" id="8_ouxo3"]
 [ext_resource type="Shader" uid="uid://cy8v8jo65tr41" path="res://shaders/circle_transition.gdshader" id="9_icy5c"]
+[ext_resource type="PackedScene" uid="uid://nus0c464jyhk" path="res://scenes/levels/house.tscn" id="10_qogh7"]
 [ext_resource type="PackedScene" uid="uid://b3tnsha7n5b84" path="res://scenes/ui/plant_info_container.tscn" id="10_rmjfq"]
 [ext_resource type="Texture2D" uid="uid://da1u0rhfjt8a3" path="res://graphics/weather/drops.png" id="12_qogh7"]
 
@@ -890,6 +891,7 @@ modulate = Color(1, 1, 1, 0.78431374)
 tile_set = SubResource("TileSet_ouxo3")
 
 [node name="RainFloorParticles" type="GPUParticles2D" parent="Layers" unique_id=292576765]
+z_index = -1
 material = SubResource("CanvasItemMaterial_8iyoh")
 position = Vector2(189, 341)
 emitting = false
@@ -991,90 +993,86 @@ position = Vector2(-149, 481)
 position = Vector2(-149, 481)
 
 [node name="SimpleObject3" parent="Objects" unique_id=157085473 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(31, 467)
-style = 0
+size = 0
 random = true
 
 [node name="SimpleObject4" parent="Objects" unique_id=464652059 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(-36, 416)
-size = 1
-style = 0
+size = 3
 random = true
 
 [node name="SimpleObject5" parent="Objects" unique_id=351454795 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(45, 201)
-size = 0
-style = 0
-random = true
-
-[node name="SimpleObject8" parent="Objects" unique_id=1506940809 instance=ExtResource("8_ouxo3")]
-position = Vector2(213, 286)
+size = 1
 random = true
 
 [node name="SimpleObject9" parent="Objects" unique_id=1161524051 instance=ExtResource("8_ouxo3")]
-z_index = -1
-position = Vector2(131, 219)
-size = 1
-style = 0
+position = Vector2(131, 213)
+size = 3
 random = true
 
 [node name="SimpleObject10" parent="Objects" unique_id=1588403882 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(72, 165)
+size = 0
 random = true
 
 [node name="SimpleObject11" parent="Objects" unique_id=1290505264 instance=ExtResource("8_ouxo3")]
 position = Vector2(192, 207)
 random = true
 
-[node name="SimpleObject12" parent="Objects" unique_id=1447348235 instance=ExtResource("8_ouxo3")]
-position = Vector2(127, 314)
-random = true
-
 [node name="SimpleObject13" parent="Objects" unique_id=1771839642 instance=ExtResource("8_ouxo3")]
-position = Vector2(264, 333)
+z_index = -1
+position = Vector2(285, 349)
+size = 0
+style = 0
 random = true
 
 [node name="SimpleObject14" parent="Objects" unique_id=636422682 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(321, 278)
-size = 1
-style = 0
+size = 3
 random = true
 
 [node name="SimpleObject15" parent="Objects" unique_id=919594699 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(380, 364)
-size = 1
+size = 0
 random = true
 
 [node name="SimpleObject16" parent="Objects" unique_id=259513319 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(323, 442)
-size = 3
+size = 0
 style = 0
 random = true
 
 [node name="SimpleObject17" parent="Objects" unique_id=1344727057 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(195, 454)
-size = 0
 random = true
 
 [node name="SimpleObject18" parent="Objects" unique_id=1298932646 instance=ExtResource("8_ouxo3")]
-position = Vector2(247, 516)
-random = true
-
-[node name="SimpleObject6" parent="Objects" unique_id=1459402825 instance=ExtResource("8_ouxo3")]
 z_index = -1
-position = Vector2(-21, 300)
+position = Vector2(247, 516)
 size = 0
 random = true
 
-[node name="SimpleObject7" parent="Objects" unique_id=1096386129 instance=ExtResource("8_ouxo3")]
+[node name="SimpleObject6" parent="Objects" unique_id=1459402825 instance=ExtResource("8_ouxo3")]
 position = Vector2(-21, 300)
 style = 0
 random = true
+
+[node name="SimpleObject7" parent="Objects" unique_id=1096386129 instance=ExtResource("8_ouxo3")]
+z_index = -1
+position = Vector2(-21, 300)
+size = 1
+style = 0
+random = true
+
+[node name="House" parent="Objects" unique_id=1690231218 instance=ExtResource("10_qogh7")]
+position = Vector2(180, 311)
 
 [node name="Overlay" type="Node2D" parent="." unique_id=234068868]
 
