@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://b0mnopqlx5dix" path="res://scenes/characters/player.tscn" id="2_b2cq8"]
 [ext_resource type="Texture2D" uid="uid://cpjr8yl2yentc" path="res://graphics/tilesets/soil.png" id="2_xb4v1"]
 [ext_resource type="Texture2D" uid="uid://vrdy2gp08qay" path="res://graphics/tilesets/soil_water.png" id="5_d4w6o"]
+[ext_resource type="Texture2D" uid="uid://lgw5hjy4jrx0" path="res://graphics/weather/floor.png" id="6_xfk5q"]
 [ext_resource type="PackedScene" uid="uid://bs2fkl7jajt3g" path="res://scenes/objects/tree.tscn" id="7_mbbpy"]
 [ext_resource type="PackedScene" uid="uid://cdb6t3bbycfyf" path="res://scenes/objects/simple_object.tscn" id="8_ouxo3"]
 [ext_resource type="Shader" uid="uid://cy8v8jo65tr41" path="res://shaders/circle_transition.gdshader" id="9_icy5c"]
 [ext_resource type="PackedScene" uid="uid://b3tnsha7n5b84" path="res://scenes/ui/plant_info_container.tscn" id="10_rmjfq"]
+[ext_resource type="Texture2D" uid="uid://da1u0rhfjt8a3" path="res://graphics/weather/drops.png" id="12_qogh7"]
 
 [sub_resource type="Gradient" id="Gradient_ouxo3"]
 offsets = PackedFloat32Array(0, 0.2369146, 0.3966942, 1)
@@ -825,13 +827,46 @@ texture = ExtResource("5_d4w6o")
 [sub_resource type="TileSet" id="TileSet_ouxo3"]
 sources/0 = SubResource("TileSetAtlasSource_mbbpy")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8iyoh"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mq31s"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 700, 1)
+gravity = Vector3(0, 0, 0)
+anim_speed_min = 0.39999998
+anim_speed_max = 2.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rmjfq"]
 shader = ExtResource("9_icy5c")
 shader_parameter/progress = 0.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5mi6g"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b8j7q"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 700, 1)
+direction = Vector3(-1, 1, 0)
+spread = 5.0
+initial_velocity_min = 40.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+anim_speed_min = 0.39999998
+anim_speed_max = 2.0
+
 [node name="Level" type="Node2D" unique_id=1495827806]
 script = ExtResource("1_urvlt")
 daytime_color = SubResource("Gradient_ouxo3")
+rain_color = Color(0.8156863, 0.8156863, 0.8156863, 1)
 
 [node name="Layers" type="Node2D" parent="." unique_id=1077443371]
 
@@ -853,6 +888,14 @@ tile_set = SubResource("TileSet_d4w6o")
 [node name="SoilWaterLayer" type="TileMapLayer" parent="Layers" unique_id=1413275760]
 modulate = Color(1, 1, 1, 0.78431374)
 tile_set = SubResource("TileSet_ouxo3")
+
+[node name="RainFloorParticles" type="GPUParticles2D" parent="Layers" unique_id=292576765]
+material = SubResource("CanvasItemMaterial_8iyoh")
+position = Vector2(189, 341)
+emitting = false
+amount = 100
+texture = ExtResource("6_xfk5q")
+process_material = SubResource("ParticleProcessMaterial_mq31s")
 
 [node name="Objects" type="Node2D" parent="." unique_id=1096759715]
 y_sort_enabled = true
@@ -949,10 +992,13 @@ position = Vector2(-149, 481)
 
 [node name="SimpleObject3" parent="Objects" unique_id=157085473 instance=ExtResource("8_ouxo3")]
 position = Vector2(31, 467)
+style = 0
 random = true
 
 [node name="SimpleObject4" parent="Objects" unique_id=464652059 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(-36, 416)
+size = 1
 style = 0
 random = true
 
@@ -960,26 +1006,22 @@ random = true
 z_index = -1
 position = Vector2(45, 201)
 size = 0
+style = 0
 random = true
 
 [node name="SimpleObject8" parent="Objects" unique_id=1506940809 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(213, 286)
-size = 0
 random = true
 
 [node name="SimpleObject9" parent="Objects" unique_id=1161524051 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(131, 219)
-size = 0
+size = 1
 style = 0
 random = true
 
 [node name="SimpleObject10" parent="Objects" unique_id=1588403882 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(72, 165)
-size = 1
-style = 0
 random = true
 
 [node name="SimpleObject11" parent="Objects" unique_id=1290505264 instance=ExtResource("8_ouxo3")]
@@ -987,20 +1029,17 @@ position = Vector2(192, 207)
 random = true
 
 [node name="SimpleObject12" parent="Objects" unique_id=1447348235 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(127, 314)
-size = 0
-style = 0
 random = true
 
 [node name="SimpleObject13" parent="Objects" unique_id=1771839642 instance=ExtResource("8_ouxo3")]
 position = Vector2(264, 333)
-size = 3
 random = true
 
 [node name="SimpleObject14" parent="Objects" unique_id=636422682 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(321, 278)
-size = 3
+size = 1
 style = 0
 random = true
 
@@ -1012,29 +1051,28 @@ random = true
 
 [node name="SimpleObject16" parent="Objects" unique_id=259513319 instance=ExtResource("8_ouxo3")]
 position = Vector2(323, 442)
+size = 3
 style = 0
 random = true
 
 [node name="SimpleObject17" parent="Objects" unique_id=1344727057 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(195, 454)
+size = 0
 random = true
 
 [node name="SimpleObject18" parent="Objects" unique_id=1298932646 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(247, 516)
-size = 1
 random = true
 
 [node name="SimpleObject6" parent="Objects" unique_id=1459402825 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(-21, 300)
 size = 0
-style = 0
 random = true
 
 [node name="SimpleObject7" parent="Objects" unique_id=1096386129 instance=ExtResource("8_ouxo3")]
 position = Vector2(-21, 300)
-size = 3
 style = 0
 random = true
 
@@ -1045,7 +1083,6 @@ random = true
 [node name="CanvasLayer" type="CanvasLayer" parent="Overlay" unique_id=169142287]
 
 [node name="DayTransitionLayer" type="ColorRect" parent="Overlay/CanvasLayer" unique_id=1901553322]
-visible = false
 material = SubResource("ShaderMaterial_rmjfq")
 anchors_preset = 15
 anchor_right = 1.0
@@ -1060,6 +1097,14 @@ color = Color(0.023529412, 0.023529412, 0.023529412, 1)
 
 [node name="PlantInfoContainer" parent="Overlay/CanvasLayer" unique_id=1645103057 instance=ExtResource("10_rmjfq")]
 visible = false
+
+[node name="RainDropsParticles" type="GPUParticles2D" parent="Overlay" unique_id=1334977724]
+material = SubResource("CanvasItemMaterial_5mi6g")
+position = Vector2(189, 341)
+emitting = false
+amount = 300
+texture = ExtResource("12_qogh7")
+process_material = SubResource("ParticleProcessMaterial_b8j7q")
 
 [node name="Timers" type="Node" parent="." unique_id=630340350]
 
