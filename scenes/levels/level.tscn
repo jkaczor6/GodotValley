@@ -12,6 +12,7 @@
 [ext_resource type="Shader" uid="uid://cy8v8jo65tr41" path="res://shaders/circle_transition.gdshader" id="9_icy5c"]
 [ext_resource type="PackedScene" uid="uid://nus0c464jyhk" path="res://scenes/levels/house.tscn" id="10_qogh7"]
 [ext_resource type="PackedScene" uid="uid://b3tnsha7n5b84" path="res://scenes/ui/plant_info_container.tscn" id="10_rmjfq"]
+[ext_resource type="PackedScene" uid="uid://dpcgnt2laes2s" path="res://scenes/machines/sprinkler.tscn" id="11_8iyoh"]
 [ext_resource type="Texture2D" uid="uid://da1u0rhfjt8a3" path="res://graphics/weather/drops.png" id="12_qogh7"]
 
 [sub_resource type="Gradient" id="Gradient_ouxo3"]
@@ -883,7 +884,7 @@ tile_set = SubResource("TileSet_xb4v1")
 
 [node name="SoilLayer" type="TileMapLayer" parent="Layers" unique_id=1862979024]
 z_index = -3
-tile_map_data = PackedByteArray("AAANABgAAAACAAIAAAANABcAAAACAAAAAAAMABgAAAABAAIAAAAMABcAAAABAAAAAAALABgAAAABAAIAAAALABcAAAABAAAAAAAKABgAAAABAAIAAAAKABcAAAABAAAAAAAJABgAAAAAAAIAAAAJABcAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAANABgAAAACAAEAAAANABcAAAACAAAAAAAMABgAAAABAAEAAAAMABcAAAABAAAAAAALABgAAAABAAEAAAALABcAAAABAAAAAAAKABgAAAABAAEAAAAKABcAAAABAAAAAAAJABgAAAAAAAEAAAAJABcAAAAAAAAAAAAJABkAAAAAAAIAAAAKABkAAAABAAIAAAALABkAAAABAAIAAAAMABkAAAABAAIAAAANABkAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_d4w6o")
 
 [node name="SoilWaterLayer" type="TileMapLayer" parent="Layers" unique_id=1413275760]
@@ -995,25 +996,25 @@ position = Vector2(-149, 481)
 
 [node name="SimpleObject3" parent="Objects" unique_id=157085473 instance=ExtResource("8_ouxo3")]
 position = Vector2(31, 467)
+size = 3
+style = 0
 random = true
 
 [node name="SimpleObject4" parent="Objects" unique_id=464652059 instance=ExtResource("8_ouxo3")]
 position = Vector2(-36, 416)
-size = 3
+style = 0
 random = true
 
 [node name="SimpleObject5" parent="Objects" unique_id=351454795 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(45, 201)
-size = 1
-style = 0
+size = 0
 random = true
 
 [node name="SimpleObject9" parent="Objects" unique_id=1161524051 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(131, 213)
 size = 0
-style = 0
 random = true
 
 [node name="SimpleObject10" parent="Objects" unique_id=1588403882 instance=ExtResource("8_ouxo3")]
@@ -1024,19 +1025,19 @@ style = 0
 random = true
 
 [node name="SimpleObject11" parent="Objects" unique_id=1290505264 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(192, 207)
-size = 0
+style = 0
 random = true
 
 [node name="SimpleObject13" parent="Objects" unique_id=1771839642 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(285, 349)
-size = 1
+size = 3
+style = 0
 random = true
 
 [node name="SimpleObject14" parent="Objects" unique_id=636422682 instance=ExtResource("8_ouxo3")]
 position = Vector2(321, 278)
+size = 3
 random = true
 
 [node name="SimpleObject15" parent="Objects" unique_id=919594699 instance=ExtResource("8_ouxo3")]
@@ -1047,39 +1048,36 @@ style = 0
 random = true
 
 [node name="SimpleObject16" parent="Objects" unique_id=259513319 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(323, 442)
-size = 0
-style = 0
 random = true
 
 [node name="SimpleObject17" parent="Objects" unique_id=1344727057 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(195, 454)
-size = 0
-style = 0
 random = true
 
 [node name="SimpleObject18" parent="Objects" unique_id=1298932646 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(247, 516)
-size = 0
-style = 0
+size = 3
 random = true
 
 [node name="SimpleObject6" parent="Objects" unique_id=1459402825 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(-21, 300)
-style = 0
+size = 1
 random = true
 
 [node name="SimpleObject7" parent="Objects" unique_id=1096386129 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(-43, 276)
-size = 1
+size = 0
+style = 0
 random = true
 
 [node name="House" parent="Objects" unique_id=1690231218 instance=ExtResource("10_qogh7")]
 position = Vector2(180, 311)
+
+[node name="Sprinkler" parent="Objects" unique_id=1185526318 instance=ExtResource("11_8iyoh")]
+position = Vector2(168, 387)
 
 [node name="Overlay" type="Node2D" parent="." unique_id=234068868]
 
@@ -1088,6 +1086,7 @@ position = Vector2(180, 311)
 [node name="CanvasLayer" type="CanvasLayer" parent="Overlay" unique_id=169142287]
 
 [node name="DayTransitionLayer" type="ColorRect" parent="Overlay/CanvasLayer" unique_id=1901553322]
+visible = false
 material = SubResource("ShaderMaterial_rmjfq")
 anchors_preset = 15
 anchor_right = 1.0

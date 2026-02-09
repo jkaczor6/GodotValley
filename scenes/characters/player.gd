@@ -9,6 +9,7 @@ var can_move : bool = true
 var current_tool: Enum.Tool = Enum.Tool.AXE
 var current_seed: Enum.Seed
 var current_state: Enum.State
+var current_style: Enum.Style
 
 signal tool_use(tool: Enum.Tool, pos: Vector2)
 signal diagnose
@@ -52,6 +53,10 @@ func get_basic_input():
 	
 	if Input.is_action_just_pressed("diagnose"):
 		diagnose.emit()
+	
+	if Input.is_action_just_pressed("style_toggle"):
+		current_style = posmod(current_style + 1, Enum.Style.size()) as Enum.Style
+		$Sprite2D.texture = Data.PLAYER_SKINS[current_style]
 
 func move():
 	direction = Input.get_vector("left", "right", "up", "down")

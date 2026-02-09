@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bn6bec7pdr53y"]
+
+[ext_resource type="PackedScene" uid="uid://b2htw7avfreo0" path="res://scenes/machines/machine.tscn" id="1_0wmfo"]
+[ext_resource type="Texture2D" uid="uid://cv5mm4i7scrv6" path="res://graphics/machines/scarecrow.png" id="2_atxg7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3vp4"]
+size = Vector2(4, 17)
+
+[node name="Scarecrow" unique_id=1185526318 instance=ExtResource("1_0wmfo")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1255223021]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_t3vp4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1" unique_id=710160913]
+position = Vector2(0, -3)
+texture = ExtResource("2_atxg7")
+hframes = 4

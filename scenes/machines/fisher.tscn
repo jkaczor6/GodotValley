@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://10ely72skbca"]
+
+[ext_resource type="PackedScene" uid="uid://b2htw7avfreo0" path="res://scenes/machines/machine.tscn" id="1_oysi4"]
+[ext_resource type="SpriteFrames" uid="uid://prqhluye08u2" path="res://premade/fisher.tres" id="2_pnbx3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xeds"]
+size = Vector2(6, 10)
+
+[node name="Fisher" unique_id=1185526318 instance=ExtResource("1_oysi4")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1255223021]
+shape = SubResource("RectangleShape2D_3xeds")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1" unique_id=108506459]
+sprite_frames = ExtResource("2_pnbx3")
+animation = &"down"
