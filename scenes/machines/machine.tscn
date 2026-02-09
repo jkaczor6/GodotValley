@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8jxr54qfn5jv" path="res://scenes/machines/machine.gd" id="1_dpiym"]
 
-[node name="Machine" type="StaticBody2D" unique_id=1185526318]
+[node name="Machine" type="StaticBody2D" unique_id=1185526318 groups=["Machines"]]
 script = ExtResource("1_dpiym")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1255223021]

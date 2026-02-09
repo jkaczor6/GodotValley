@@ -9,6 +9,7 @@ size = Vector2(11, 9)
 
 [node name="Scarecrow" unique_id=1185526318 instance=ExtResource("1_0wmfo")]
 script = ExtResource("2_t3vp4")
+max_range = 150
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1255223021]
 position = Vector2(0.5, 2)

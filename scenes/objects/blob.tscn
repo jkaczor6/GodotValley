@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://bsa4a4fnyvjon" path="res://shaders/flash.tres" id="3_vg2cp"]
 [ext_resource type="Texture2D" uid="uid://b466fqj7w4mne" path="res://graphics/characters/blob.png" id="4_ckn0h"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vcmgo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3y2e6"]
 resource_local_to_scene = true
 shader = ExtResource("3_vg2cp")
 shader_parameter/ColorParameter = Color(1, 1, 1, 1)
@@ -88,7 +88,7 @@ collision_layer = 4
 script = ExtResource("1_3y2e6")
 
 [node name="FlashSprite2D" parent="." unique_id=1499085669 instance=ExtResource("2_eba5w")]
-material = SubResource("ShaderMaterial_vcmgo")
+material = SubResource("ShaderMaterial_3y2e6")
 texture = ExtResource("4_ckn0h")
 hframes = 14
 vframes = 4
