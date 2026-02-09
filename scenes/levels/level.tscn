@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://da1u0rhfjt8a3" path="res://graphics/weather/drops.png" id="12_qogh7"]
 [ext_resource type="PackedScene" uid="uid://bn6bec7pdr53y" path="res://scenes/machines/scarecrow.tscn" id="13_b8j7q"]
 [ext_resource type="PackedScene" uid="uid://4njyoggo2j5r" path="res://scenes/objects/blob.tscn" id="14_b8j7q"]
+[ext_resource type="Texture2D" uid="uid://capn581vt8q7g" path="res://graphics/icons/sprinkler.png" id="18_qhnmj"]
 
 [sub_resource type="Gradient" id="Gradient_ouxo3"]
 offsets = PackedFloat32Array(0, 0.2369146, 0.3966942, 1)
@@ -999,7 +1000,7 @@ position = Vector2(-149, 481)
 
 [node name="SimpleObject3" parent="Objects" unique_id=157085473 instance=ExtResource("8_ouxo3")]
 position = Vector2(31, 467)
-size = 3
+style = 0
 random = true
 
 [node name="SimpleObject4" parent="Objects" unique_id=464652059 instance=ExtResource("8_ouxo3")]
@@ -1008,38 +1009,44 @@ style = 0
 random = true
 
 [node name="SimpleObject5" parent="Objects" unique_id=351454795 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(45, 201)
-size = 1
+size = 3
+style = 0
 random = true
 
 [node name="SimpleObject9" parent="Objects" unique_id=1161524051 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(131, 213)
-size = 1
+size = 0
 style = 0
 random = true
 
 [node name="SimpleObject10" parent="Objects" unique_id=1588403882 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(72, 165)
+size = 1
+style = 0
 random = true
 
 [node name="SimpleObject11" parent="Objects" unique_id=1290505264 instance=ExtResource("8_ouxo3")]
 position = Vector2(192, 207)
-size = 3
 style = 0
 random = true
 
 [node name="SimpleObject13" parent="Objects" unique_id=1771839642 instance=ExtResource("8_ouxo3")]
 position = Vector2(285, 349)
+style = 0
 random = true
 
 [node name="SimpleObject14" parent="Objects" unique_id=636422682 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(321, 278)
+size = 0
 random = true
 
 [node name="SimpleObject15" parent="Objects" unique_id=919594699 instance=ExtResource("8_ouxo3")]
 position = Vector2(380, 364)
+size = 3
 style = 0
 random = true
 
@@ -1050,29 +1057,27 @@ size = 1
 random = true
 
 [node name="SimpleObject17" parent="Objects" unique_id=1344727057 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(195, 454)
-size = 1
-style = 0
+size = 3
 random = true
 
 [node name="SimpleObject18" parent="Objects" unique_id=1298932646 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(247, 516)
-size = 1
+size = 3
 style = 0
 random = true
 
 [node name="SimpleObject6" parent="Objects" unique_id=1459402825 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(-21, 300)
-size = 3
+size = 1
 style = 0
 random = true
 
 [node name="SimpleObject7" parent="Objects" unique_id=1096386129 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(-43, 276)
-size = 3
-style = 0
+size = 0
 random = true
 
 [node name="House" parent="Objects" unique_id=1690231218 instance=ExtResource("10_qogh7")]
@@ -1120,6 +1125,9 @@ amount = 300
 texture = ExtResource("12_qogh7")
 process_material = SubResource("ParticleProcessMaterial_b8j7q")
 
+[node name="MachinePreviewSprite" type="Sprite2D" parent="Overlay" unique_id=1454366817]
+texture = ExtResource("18_qhnmj")
+
 [node name="Timers" type="Node" parent="." unique_id=630340350]
 
 [node name="DayTimer" type="Timer" parent="Timers" unique_id=614106153]
@@ -1127,6 +1135,8 @@ wait_time = 300.0
 one_shot = true
 autostart = true
 
+[connection signal="build" from="Objects/Player" to="." method="_on_player_build"]
 [connection signal="day_change" from="Objects/Player" to="." method="_on_player_day_change"]
 [connection signal="diagnose" from="Objects/Player" to="." method="_on_player_diagnose"]
+[connection signal="machine_change" from="Objects/Player" to="." method="_on_player_machine_change"]
 [connection signal="tool_use" from="Objects/Player" to="." method="_on_player_tool_use"]

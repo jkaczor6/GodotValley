@@ -3,15 +3,27 @@ extends Node2D
 var plant_scene = preload("res://scenes/objects/plant.tscn")
 var plant_info_scene = preload("res://scenes/ui/plant_info.tscn")
 var projectile_scene = preload("res://scenes/machines/projectile.tscn")
+var machine_scenes = {
+	Enum.Machine.SPRINKLER: preload("res://scenes/machines/sprinkler.tscn"),
+	Enum.Machine.SCARECROW: preload("res://scenes/machines/scarecrow.tscn"),
+	Enum.Machine.FISHER: preload("res://scenes/machines/fisher.tscn")
+}
 var used_cells: Array[Vector2i]
 var raining: bool:
 	set(value):
 		raining = value
 		$Layers/RainFloorParticles.emitting = value
 		$Overlay/RainDropsParticles.emitting = value
+@onready var player = $Objects/Player
 
 @export var daytime_color: Gradient
 @export var rain_color: Color
+
+const MACHINE_PREVIEW_TEXTURES = {
+	Enum.Machine.SPRINKLER: {'texture':preload("res://graphics/icons/sprinkler.png"), 'offset': Vector2i(0,0)},
+	Enum.Machine.FISHER: {'texture':preload("res://graphics/icons/fisher.png"), 'offset': Vector2i(0,-4)},
+	Enum.Machine.SCARECROW: {'texture':preload("res://graphics/icons/scarecrow.png"), 'offset': Vector2i(0,-4)},
+	Enum.Machine.DELETE: {'texture':preload("res://graphics/icons/delete.png"), 'offset': Vector2i(0,0)}}
 
 func _on_player_tool_use(tool: Enum.Tool, pos: Vector2) -> void:
 	var grid_coord: Vector2i = Vector2i(int(pos.x / Data.TILE_SIZE), int(pos.y / Data.TILE_SIZE))
@@ -30,11 +42,11 @@ func _on_player_tool_use(tool: Enum.Tool, pos: Vector2) -> void:
 				$Layers/SoilWaterLayer.set_cell(grid_coord, 0, Vector2i(randi_range(0,2),0))
 		Enum.Tool.FISH:
 			if not grid_coord in $Layers/GrassLayer.get_used_cells():
-				$Objects/Player.start_fishing()
+				player.start_fishing()
 		Enum.Tool.SEED:
 			if has_soil and grid_coord not in used_cells:
 				var plant_res = PlantResource.new()
-				plant_res.setup($Objects/Player.current_seed)
+				plant_res.setup(player.current_seed)
 				var plant = plant_scene.instantiate()
 				plant.setup(grid_coord, $Objects, plant_res, plant_death)
 				used_cells.append(grid_coord)
@@ -54,6 +66,14 @@ func _on_player_diagnose() -> void:
 func _on_player_day_change() -> void:
 	day_restart()
 
+func _on_player_build(current_machine: int) -> void:
+	if current_machine != Enum.Machine.DELETE:
+		var machine = machine_scenes[current_machine].instantiate()
+		machine.setup(player.get_machine_coords(), self, $Objects)
+
+func _on_player_machine_change(current_machine: int) -> void:
+	$Overlay/MachinePreviewSprite.texture = MACHINE_PREVIEW_TEXTURES[current_machine]['texture']
+	
 func _ready() -> void:
 	Data.forecast_rain = [true, false].pick_random()
 	$Objects/Scarecrow.connect("shoot_projectile", create_projectile)
@@ -62,6 +82,9 @@ func _process(_delta: float) -> void:
 	var daytime_point = 1 - ($Timers/DayTimer.time_left / $Timers/DayTimer.wait_time)
 	var color = daytime_color.sample(daytime_point).lerp(rain_color, 0.5 if raining else 0.0)
 	$Overlay/DayTimeColor.color = color
+	
+	$Overlay/MachinePreviewSprite.visible = player.current_state == Enum.State.BUILDING
+	$Overlay/MachinePreviewSprite.position = player.get_machine_coords() + MACHINE_PREVIEW_TEXTURES[player.current_machine]['offset']
 
 func day_restart():
 	var tween = create_tween()
