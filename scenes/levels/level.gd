@@ -118,3 +118,13 @@ func create_projectile(start_pos: Vector2, dir: Vector2):
 	var projectile = projectile_scene.instantiate()
 	projectile.setup(start_pos, dir)
 	$Objects.add_child(projectile)
+
+func water_plants(coord: Vector2i):
+	const SOIL_DIRECTIONS = [
+		Vector2i(-1, -1), Vector2i(0, -1), Vector2i(1, -1),
+		Vector2i(-1,  0),Vector2i(1,0), Vector2i(-1,  1), 
+		Vector2i(0,  1), Vector2i(1,  1)]
+	for dir in SOIL_DIRECTIONS:
+		var cell = coord + dir
+		if cell in $Layers/SoilLayer.get_used_cells():
+			$Layers/SoilWaterLayer.set_cell(cell, 0, Vector2i(randi_range(0,2),0))

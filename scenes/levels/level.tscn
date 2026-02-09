@@ -12,11 +12,7 @@
 [ext_resource type="Shader" uid="uid://cy8v8jo65tr41" path="res://shaders/circle_transition.gdshader" id="9_icy5c"]
 [ext_resource type="PackedScene" uid="uid://nus0c464jyhk" path="res://scenes/levels/house.tscn" id="10_qogh7"]
 [ext_resource type="PackedScene" uid="uid://b3tnsha7n5b84" path="res://scenes/ui/plant_info_container.tscn" id="10_rmjfq"]
-[ext_resource type="PackedScene" uid="uid://dpcgnt2laes2s" path="res://scenes/machines/sprinkler.tscn" id="11_8iyoh"]
-[ext_resource type="PackedScene" uid="uid://10ely72skbca" path="res://scenes/machines/fisher.tscn" id="12_5mi6g"]
 [ext_resource type="Texture2D" uid="uid://da1u0rhfjt8a3" path="res://graphics/weather/drops.png" id="12_qogh7"]
-[ext_resource type="PackedScene" uid="uid://bn6bec7pdr53y" path="res://scenes/machines/scarecrow.tscn" id="13_b8j7q"]
-[ext_resource type="PackedScene" uid="uid://4njyoggo2j5r" path="res://scenes/objects/blob.tscn" id="14_b8j7q"]
 [ext_resource type="Texture2D" uid="uid://capn581vt8q7g" path="res://graphics/icons/sprinkler.png" id="18_qhnmj"]
 
 [sub_resource type="Gradient" id="Gradient_ouxo3"]
@@ -44,6 +40,7 @@ texture = ExtResource("1_bovvr")
 0:0/0/terrains_peering_bit/right_side = 0
 0:0/0/terrains_peering_bit/bottom_right_corner = 0
 0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/custom_data_1 = Vector2i(-1, 0)
 1:0/0 = 0
 1:0/0/terrain_set = 0
 1:0/0/terrain = 0
@@ -53,6 +50,7 @@ texture = ExtResource("1_bovvr")
 1:0/0/terrains_peering_bit/bottom_side = 0
 1:0/0/terrains_peering_bit/bottom_left_corner = 0
 1:0/0/terrains_peering_bit/left_side = 0
+1:0/0/custom_data_1 = Vector2i(0, -1)
 2:0/0 = 0
 2:0/0/terrain_set = 0
 2:0/0/terrain = 0
@@ -60,15 +58,18 @@ texture = ExtResource("1_bovvr")
 2:0/0/terrains_peering_bit/bottom_side = 0
 2:0/0/terrains_peering_bit/bottom_left_corner = 0
 2:0/0/terrains_peering_bit/left_side = 0
+2:0/0/custom_data_1 = Vector2i(1, 0)
 3:0/0 = 0
 3:0/0/terrain_set = 0
 3:0/0/terrain = 0
 3:0/0/terrains_peering_bit/bottom_side = 0
+3:0/0/custom_data_1 = Vector2i(0, -1)
 4:0/0 = 0
 4:0/0/terrain_set = 0
 4:0/0/terrain = 0
 4:0/0/terrains_peering_bit/right_side = 0
 4:0/0/terrains_peering_bit/bottom_side = 0
+4:0/0/custom_data_1 = Vector2i(-1, 0)
 5:0/0 = 0
 5:0/0/terrain_set = 0
 5:0/0/terrain = 0
@@ -76,6 +77,7 @@ texture = ExtResource("1_bovvr")
 5:0/0/terrains_peering_bit/bottom_side = 0
 5:0/0/terrains_peering_bit/bottom_left_corner = 0
 5:0/0/terrains_peering_bit/left_side = 0
+5:0/0/custom_data_1 = Vector2i(0, -1)
 6:0/0 = 0
 6:0/0/terrain_set = 0
 6:0/0/terrain = 0
@@ -83,17 +85,20 @@ texture = ExtResource("1_bovvr")
 6:0/0/terrains_peering_bit/bottom_right_corner = 0
 6:0/0/terrains_peering_bit/bottom_side = 0
 6:0/0/terrains_peering_bit/left_side = 0
+6:0/0/custom_data_1 = Vector2i(0, -1)
 7:0/0 = 0
 7:0/0/terrain_set = 0
 7:0/0/terrain = 0
 7:0/0/terrains_peering_bit/bottom_side = 0
 7:0/0/terrains_peering_bit/left_side = 0
+7:0/0/custom_data_1 = Vector2i(1, 0)
 8:0/0 = 0
 8:0/0/terrain_set = 0
 8:0/0/terrain = 0
 8:0/0/terrains_peering_bit/right_side = 0
 8:0/0/terrains_peering_bit/bottom_side = 0
 8:0/0/terrains_peering_bit/left_side = 0
+8:0/0/custom_data_1 = Vector2i(0, -1)
 9:0/0 = 0
 9:0/0/terrain_set = 0
 9:0/0/terrain = 0
@@ -112,6 +117,7 @@ texture = ExtResource("1_bovvr")
 0:1/0/terrains_peering_bit/bottom_side = 0
 0:1/0/terrains_peering_bit/top_side = 0
 0:1/0/terrains_peering_bit/top_right_corner = 0
+0:1/0/custom_data_1 = Vector2i(-1, 0)
 1:1/0 = 0
 1:1/0/terrain_set = 0
 1:1/0/terrain = 0
@@ -133,11 +139,13 @@ texture = ExtResource("1_bovvr")
 2:1/0/terrains_peering_bit/left_side = 0
 2:1/0/terrains_peering_bit/top_left_corner = 0
 2:1/0/terrains_peering_bit/top_side = 0
+2:1/0/custom_data_1 = Vector2i(1, 0)
 3:1/0 = 0
 3:1/0/terrain_set = 0
 3:1/0/terrain = 0
 3:1/0/terrains_peering_bit/bottom_side = 0
 3:1/0/terrains_peering_bit/top_side = 0
+3:1/0/custom_data_1 = Vector2i(1, 0)
 4:1/0 = 0
 4:1/0/terrain_set = 0
 4:1/0/terrain = 0
@@ -145,6 +153,7 @@ texture = ExtResource("1_bovvr")
 4:1/0/terrains_peering_bit/bottom_side = 0
 4:1/0/terrains_peering_bit/top_side = 0
 4:1/0/terrains_peering_bit/top_right_corner = 0
+4:1/0/custom_data_1 = Vector2i(-1, 0)
 5:1/0 = 0
 5:1/0/terrain_set = 0
 5:1/0/terrain = 0
@@ -172,6 +181,7 @@ texture = ExtResource("1_bovvr")
 7:1/0/terrains_peering_bit/left_side = 0
 7:1/0/terrains_peering_bit/top_left_corner = 0
 7:1/0/terrains_peering_bit/top_side = 0
+7:1/0/custom_data_1 = Vector2i(1, 0)
 8:1/0 = 0
 8:1/0/terrain_set = 0
 8:1/0/terrain = 0
@@ -197,6 +207,7 @@ texture = ExtResource("1_bovvr")
 0:2/0/terrains_peering_bit/right_side = 0
 0:2/0/terrains_peering_bit/top_side = 0
 0:2/0/terrains_peering_bit/top_right_corner = 0
+0:2/0/custom_data_1 = Vector2i(-1, 0)
 1:2/0 = 0
 1:2/0/terrain_set = 0
 1:2/0/terrain = 0
@@ -206,6 +217,7 @@ texture = ExtResource("1_bovvr")
 1:2/0/terrains_peering_bit/top_left_corner = 0
 1:2/0/terrains_peering_bit/top_side = 0
 1:2/0/terrains_peering_bit/top_right_corner = 0
+1:2/0/custom_data_1 = Vector2i(0, 1)
 2:2/0 = 0
 2:2/0/terrain_set = 0
 2:2/0/terrain = 0
@@ -213,10 +225,12 @@ texture = ExtResource("1_bovvr")
 2:2/0/terrains_peering_bit/left_side = 0
 2:2/0/terrains_peering_bit/top_left_corner = 0
 2:2/0/terrains_peering_bit/top_side = 0
+2:2/0/custom_data_1 = Vector2i(1, 0)
 3:2/0 = 0
 3:2/0/terrain_set = 0
 3:2/0/terrain = 0
 3:2/0/terrains_peering_bit/top_side = 0
+3:2/0/custom_data_1 = Vector2i(0, 1)
 4:2/0 = 0
 4:2/0/terrain_set = 0
 4:2/0/terrain = 0
@@ -224,6 +238,7 @@ texture = ExtResource("1_bovvr")
 4:2/0/terrains_peering_bit/bottom_right_corner = 0
 4:2/0/terrains_peering_bit/bottom_side = 0
 4:2/0/terrains_peering_bit/top_side = 0
+4:2/0/custom_data_1 = Vector2i(-1, 0)
 5:2/0 = 0
 5:2/0/terrain_set = 0
 5:2/0/terrain = 0
@@ -251,6 +266,7 @@ texture = ExtResource("1_bovvr")
 7:2/0/terrains_peering_bit/bottom_left_corner = 0
 7:2/0/terrains_peering_bit/left_side = 0
 7:2/0/terrains_peering_bit/top_side = 0
+7:2/0/custom_data_1 = Vector2i(1, 0)
 8:2/0 = 0
 8:2/0/terrain_set = 0
 8:2/0/terrain = 0
@@ -280,15 +296,18 @@ texture = ExtResource("1_bovvr")
 0:3/0/terrain_set = 0
 0:3/0/terrain = 0
 0:3/0/terrains_peering_bit/right_side = 0
+0:3/0/custom_data_1 = Vector2i(-1, 0)
 1:3/0 = 0
 1:3/0/terrain_set = 0
 1:3/0/terrain = 0
 1:3/0/terrains_peering_bit/right_side = 0
 1:3/0/terrains_peering_bit/left_side = 0
+1:3/0/custom_data_1 = Vector2i(0, 1)
 2:3/0 = 0
 2:3/0/terrain_set = 0
 2:3/0/terrain = 0
 2:3/0/terrains_peering_bit/left_side = 0
+2:3/0/custom_data_1 = Vector2i(1, 0)
 3:3/0 = 0
 3:3/0/terrain_set = 0
 3:3/0/terrain = 0
@@ -297,6 +316,7 @@ texture = ExtResource("1_bovvr")
 4:3/0/terrain = 0
 4:3/0/terrains_peering_bit/right_side = 0
 4:3/0/terrains_peering_bit/top_side = 0
+4:3/0/custom_data_1 = Vector2i(-1, 0)
 5:3/0 = 0
 5:3/0/terrain_set = 0
 5:3/0/terrain = 0
@@ -304,6 +324,7 @@ texture = ExtResource("1_bovvr")
 5:3/0/terrains_peering_bit/left_side = 0
 5:3/0/terrains_peering_bit/top_left_corner = 0
 5:3/0/terrains_peering_bit/top_side = 0
+5:3/0/custom_data_1 = Vector2i(0, 1)
 6:3/0 = 0
 6:3/0/terrain_set = 0
 6:3/0/terrain = 0
@@ -311,17 +332,20 @@ texture = ExtResource("1_bovvr")
 6:3/0/terrains_peering_bit/left_side = 0
 6:3/0/terrains_peering_bit/top_side = 0
 6:3/0/terrains_peering_bit/top_right_corner = 0
+6:3/0/custom_data_1 = Vector2i(0, 1)
 7:3/0 = 0
 7:3/0/terrain_set = 0
 7:3/0/terrain = 0
 7:3/0/terrains_peering_bit/left_side = 0
 7:3/0/terrains_peering_bit/top_side = 0
+7:3/0/custom_data_1 = Vector2i(1, 0)
 8:3/0 = 0
 8:3/0/terrain_set = 0
 8:3/0/terrain = 0
 8:3/0/terrains_peering_bit/right_side = 0
 8:3/0/terrains_peering_bit/left_side = 0
 8:3/0/terrains_peering_bit/top_side = 0
+8:3/0/custom_data_1 = Vector2i(0, 1)
 9:3/0 = 0
 9:3/0/terrain_set = 0
 9:3/0/terrain = 0
@@ -396,6 +420,7 @@ texture = ExtResource("1_bovvr")
 4:4/0/terrains_peering_bit/right_side = 0
 4:4/0/terrains_peering_bit/bottom_side = 0
 4:4/0/terrains_peering_bit/top_side = 0
+4:4/0/custom_data_1 = Vector2i(-1, 0)
 5:4/0 = 0
 5:4/0/terrain_set = 0
 5:4/0/terrain = 0
@@ -420,6 +445,7 @@ texture = ExtResource("1_bovvr")
 7:4/0/terrains_peering_bit/bottom_side = 0
 7:4/0/terrains_peering_bit/left_side = 0
 7:4/0/terrains_peering_bit/top_side = 0
+7:4/0/custom_data_1 = Vector2i(1, 0)
 8:4/0 = 0
 8:4/0/terrain_set = 0
 8:4/0/terrain = 0
@@ -436,6 +462,8 @@ terrain_set_0/terrain_0/name = "Grass"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 custom_data_layer_0/name = "Farmable"
 custom_data_layer_0/type = 1
+custom_data_layer_1/name = "Coast"
+custom_data_layer_1/type = 6
 sources/0 = SubResource("TileSetAtlasSource_b2cq8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_urvlt"]
@@ -999,13 +1027,13 @@ position = Vector2(-149, 481)
 position = Vector2(-149, 481)
 
 [node name="SimpleObject3" parent="Objects" unique_id=157085473 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(31, 467)
-style = 0
+size = 1
 random = true
 
 [node name="SimpleObject4" parent="Objects" unique_id=464652059 instance=ExtResource("8_ouxo3")]
 position = Vector2(-36, 416)
-style = 0
 random = true
 
 [node name="SimpleObject5" parent="Objects" unique_id=351454795 instance=ExtResource("8_ouxo3")]
@@ -1022,78 +1050,62 @@ style = 0
 random = true
 
 [node name="SimpleObject10" parent="Objects" unique_id=1588403882 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(72, 165)
-size = 1
-style = 0
+size = 3
 random = true
 
 [node name="SimpleObject11" parent="Objects" unique_id=1290505264 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(192, 207)
+size = 1
 style = 0
 random = true
 
 [node name="SimpleObject13" parent="Objects" unique_id=1771839642 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(285, 349)
+size = 1
 style = 0
 random = true
 
 [node name="SimpleObject14" parent="Objects" unique_id=636422682 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(321, 278)
-size = 0
-random = true
-
-[node name="SimpleObject15" parent="Objects" unique_id=919594699 instance=ExtResource("8_ouxo3")]
-position = Vector2(380, 364)
 size = 3
 style = 0
 random = true
 
-[node name="SimpleObject16" parent="Objects" unique_id=259513319 instance=ExtResource("8_ouxo3")]
+[node name="SimpleObject15" parent="Objects" unique_id=919594699 instance=ExtResource("8_ouxo3")]
 z_index = -1
-position = Vector2(323, 442)
+position = Vector2(380, 364)
 size = 1
+random = true
+
+[node name="SimpleObject16" parent="Objects" unique_id=259513319 instance=ExtResource("8_ouxo3")]
+position = Vector2(323, 442)
+style = 0
 random = true
 
 [node name="SimpleObject17" parent="Objects" unique_id=1344727057 instance=ExtResource("8_ouxo3")]
 position = Vector2(195, 454)
 size = 3
+style = 0
 random = true
 
 [node name="SimpleObject18" parent="Objects" unique_id=1298932646 instance=ExtResource("8_ouxo3")]
 position = Vector2(247, 516)
-size = 3
-style = 0
 random = true
 
 [node name="SimpleObject6" parent="Objects" unique_id=1459402825 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(-21, 300)
-size = 1
-style = 0
 random = true
 
 [node name="SimpleObject7" parent="Objects" unique_id=1096386129 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(-43, 276)
-size = 0
+size = 3
 random = true
 
 [node name="House" parent="Objects" unique_id=1690231218 instance=ExtResource("10_qogh7")]
 position = Vector2(180, 311)
-
-[node name="Sprinkler" parent="Objects" unique_id=1185526318 instance=ExtResource("11_8iyoh")]
-position = Vector2(168, 387)
-
-[node name="Fisher" parent="Objects" unique_id=1237428364 instance=ExtResource("12_5mi6g")]
-position = Vector2(134, 385)
-
-[node name="Scarecrow" parent="Objects" unique_id=1937228898 instance=ExtResource("13_b8j7q")]
-position = Vector2(136, 343)
-
-[node name="Blob" parent="Objects" unique_id=1767113550 instance=ExtResource("14_b8j7q")]
-position = Vector2(110, 354)
 
 [node name="Overlay" type="Node2D" parent="." unique_id=234068868]
 
