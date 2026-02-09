@@ -2,17 +2,25 @@
 
 [ext_resource type="PackedScene" uid="uid://b2htw7avfreo0" path="res://scenes/machines/machine.tscn" id="1_0wmfo"]
 [ext_resource type="Texture2D" uid="uid://cv5mm4i7scrv6" path="res://graphics/machines/scarecrow.png" id="2_atxg7"]
+[ext_resource type="Script" uid="uid://dyub632xtwpci" path="res://scenes/machines/scarecrow.gd" id="2_t3vp4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3vp4"]
-size = Vector2(4, 17)
+size = Vector2(11, 9)
 
 [node name="Scarecrow" unique_id=1185526318 instance=ExtResource("1_0wmfo")]
+script = ExtResource("2_t3vp4")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1255223021]
-position = Vector2(1, 2)
+position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_t3vp4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1" unique_id=710160913]
-position = Vector2(0, -3)
+position = Vector2(0, -6)
 texture = ExtResource("2_atxg7")
 hframes = 4
+
+[node name="Timer" type="Timer" parent="." index="2" unique_id=480697904]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

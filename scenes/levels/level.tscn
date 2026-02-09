@@ -13,7 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://nus0c464jyhk" path="res://scenes/levels/house.tscn" id="10_qogh7"]
 [ext_resource type="PackedScene" uid="uid://b3tnsha7n5b84" path="res://scenes/ui/plant_info_container.tscn" id="10_rmjfq"]
 [ext_resource type="PackedScene" uid="uid://dpcgnt2laes2s" path="res://scenes/machines/sprinkler.tscn" id="11_8iyoh"]
+[ext_resource type="PackedScene" uid="uid://10ely72skbca" path="res://scenes/machines/fisher.tscn" id="12_5mi6g"]
 [ext_resource type="Texture2D" uid="uid://da1u0rhfjt8a3" path="res://graphics/weather/drops.png" id="12_qogh7"]
+[ext_resource type="PackedScene" uid="uid://bn6bec7pdr53y" path="res://scenes/machines/scarecrow.tscn" id="13_b8j7q"]
+[ext_resource type="PackedScene" uid="uid://4njyoggo2j5r" path="res://scenes/objects/blob.tscn" id="14_b8j7q"]
 
 [sub_resource type="Gradient" id="Gradient_ouxo3"]
 offsets = PackedFloat32Array(0, 0.2369146, 0.3966942, 1)
@@ -997,7 +1000,6 @@ position = Vector2(-149, 481)
 [node name="SimpleObject3" parent="Objects" unique_id=157085473 instance=ExtResource("8_ouxo3")]
 position = Vector2(31, 467)
 size = 3
-style = 0
 random = true
 
 [node name="SimpleObject4" parent="Objects" unique_id=464652059 instance=ExtResource("8_ouxo3")]
@@ -1008,68 +1010,68 @@ random = true
 [node name="SimpleObject5" parent="Objects" unique_id=351454795 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(45, 201)
-size = 0
+size = 1
 random = true
 
 [node name="SimpleObject9" parent="Objects" unique_id=1161524051 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(131, 213)
-size = 0
-random = true
-
-[node name="SimpleObject10" parent="Objects" unique_id=1588403882 instance=ExtResource("8_ouxo3")]
-z_index = -1
-position = Vector2(72, 165)
 size = 1
 style = 0
 random = true
 
+[node name="SimpleObject10" parent="Objects" unique_id=1588403882 instance=ExtResource("8_ouxo3")]
+position = Vector2(72, 165)
+random = true
+
 [node name="SimpleObject11" parent="Objects" unique_id=1290505264 instance=ExtResource("8_ouxo3")]
 position = Vector2(192, 207)
+size = 3
 style = 0
 random = true
 
 [node name="SimpleObject13" parent="Objects" unique_id=1771839642 instance=ExtResource("8_ouxo3")]
 position = Vector2(285, 349)
-size = 3
-style = 0
 random = true
 
 [node name="SimpleObject14" parent="Objects" unique_id=636422682 instance=ExtResource("8_ouxo3")]
 position = Vector2(321, 278)
-size = 3
 random = true
 
 [node name="SimpleObject15" parent="Objects" unique_id=919594699 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(380, 364)
-size = 1
 style = 0
 random = true
 
 [node name="SimpleObject16" parent="Objects" unique_id=259513319 instance=ExtResource("8_ouxo3")]
-position = Vector2(323, 442)
-random = true
-
-[node name="SimpleObject17" parent="Objects" unique_id=1344727057 instance=ExtResource("8_ouxo3")]
-position = Vector2(195, 454)
-random = true
-
-[node name="SimpleObject18" parent="Objects" unique_id=1298932646 instance=ExtResource("8_ouxo3")]
-position = Vector2(247, 516)
-size = 3
-random = true
-
-[node name="SimpleObject6" parent="Objects" unique_id=1459402825 instance=ExtResource("8_ouxo3")]
 z_index = -1
-position = Vector2(-21, 300)
+position = Vector2(323, 442)
 size = 1
 random = true
 
-[node name="SimpleObject7" parent="Objects" unique_id=1096386129 instance=ExtResource("8_ouxo3")]
+[node name="SimpleObject17" parent="Objects" unique_id=1344727057 instance=ExtResource("8_ouxo3")]
 z_index = -1
+position = Vector2(195, 454)
+size = 1
+style = 0
+random = true
+
+[node name="SimpleObject18" parent="Objects" unique_id=1298932646 instance=ExtResource("8_ouxo3")]
+z_index = -1
+position = Vector2(247, 516)
+size = 1
+style = 0
+random = true
+
+[node name="SimpleObject6" parent="Objects" unique_id=1459402825 instance=ExtResource("8_ouxo3")]
+position = Vector2(-21, 300)
+size = 3
+style = 0
+random = true
+
+[node name="SimpleObject7" parent="Objects" unique_id=1096386129 instance=ExtResource("8_ouxo3")]
 position = Vector2(-43, 276)
-size = 0
+size = 3
 style = 0
 random = true
 
@@ -1079,6 +1081,15 @@ position = Vector2(180, 311)
 [node name="Sprinkler" parent="Objects" unique_id=1185526318 instance=ExtResource("11_8iyoh")]
 position = Vector2(168, 387)
 
+[node name="Fisher" parent="Objects" unique_id=1237428364 instance=ExtResource("12_5mi6g")]
+position = Vector2(134, 385)
+
+[node name="Scarecrow" parent="Objects" unique_id=1937228898 instance=ExtResource("13_b8j7q")]
+position = Vector2(136, 343)
+
+[node name="Blob" parent="Objects" unique_id=1767113550 instance=ExtResource("14_b8j7q")]
+position = Vector2(110, 354)
+
 [node name="Overlay" type="Node2D" parent="." unique_id=234068868]
 
 [node name="DayTimeColor" type="CanvasModulate" parent="Overlay" unique_id=844559066]
@@ -1086,7 +1097,6 @@ position = Vector2(168, 387)
 [node name="CanvasLayer" type="CanvasLayer" parent="Overlay" unique_id=169142287]
 
 [node name="DayTransitionLayer" type="ColorRect" parent="Overlay/CanvasLayer" unique_id=1901553322]
-visible = false
 material = SubResource("ShaderMaterial_rmjfq")
 anchors_preset = 15
 anchor_right = 1.0
