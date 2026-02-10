@@ -14,10 +14,12 @@ var raining: bool:
 		raining = value
 		$Layers/RainFloorParticles.emitting = value
 		$Overlay/RainDropsParticles.emitting = value
+		$Music/Rain.playing = value
 @onready var player = $Objects/Player
 
 @export var daytime_color: Gradient
 @export var rain_color: Color
+@export var volume_curve: Curve
 
 const MACHINE_PREVIEW_TEXTURES = {
 	Enum.Machine.SPRINKLER: {'texture':preload("res://graphics/icons/sprinkler.png"), 'offset': Vector2i(0,0)},
@@ -97,6 +99,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var daytime_point = 1 - ($Timers/DayTimer.time_left / $Timers/DayTimer.wait_time)
 	var color = daytime_color.sample(daytime_point).lerp(rain_color, 0.5 if raining else 0.0)
+	$Music/BGMusic.volume_db = volume_curve.sample(daytime_point)
 	$Overlay/DayTimeColor.color = color
 	
 	$Overlay/MachinePreviewSprite.visible = player.current_state == Enum.State.BUILDING

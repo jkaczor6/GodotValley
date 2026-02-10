@@ -4,6 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bp3sfnx2rutrs" path="res://graphics/characters/main/main_basic.png" id="3_6eyoc"]
 [ext_resource type="PackedScene" uid="uid://bcg37n0ysrp6w" path="res://scenes/ui/tool_ui.tscn" id="3_76oj4"]
 [ext_resource type="PackedScene" uid="uid://qspw5wxn75gc" path="res://scenes/ui/fishing_game.tscn" id="4_dyp2m"]
+[ext_resource type="AudioStream" uid="uid://dvtigt760l6wc" path="res://audio/axe.wav" id="5_atpat"]
+[ext_resource type="AudioStream" uid="uid://doray1iu4lcha" path="res://audio/fish.wav" id="6_eojnx"]
+[ext_resource type="AudioStream" uid="uid://cdymyhvnjr52r" path="res://audio/hoe.wav" id="7_qgnko"]
+[ext_resource type="AudioStream" uid="uid://c3f7txlnei6mm" path="res://audio/water.ogg" id="8_7vyk4"]
+[ext_resource type="AudioStream" uid="uid://do4sqscm88cyg" path="res://audio/step.mp3" id="9_qgnko"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_atpat"]
 radius = 4.0
@@ -1586,5 +1591,27 @@ collision_mask = 8
 [node name="FishingGame" parent="." unique_id=1221989429 instance=ExtResource("4_dyp2m")]
 position = Vector2(40, 0)
 
+[node name="Sounds" type="Node2D" parent="." unique_id=156156857]
+
+[node name="Axe" type="AudioStreamPlayer2D" parent="Sounds" unique_id=422145720]
+stream = ExtResource("5_atpat")
+
+[node name="Fish" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1046539359]
+stream = ExtResource("6_eojnx")
+
+[node name="Hoe" type="AudioStreamPlayer2D" parent="Sounds" unique_id=867928076]
+stream = ExtResource("7_qgnko")
+
+[node name="Water" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1316768035]
+stream = ExtResource("8_7vyk4")
+
+[node name="Step" type="AudioStreamPlayer2D" parent="Sounds" unique_id=94547977]
+stream = ExtResource("9_qgnko")
+volume_db = -15.0
+
+[node name="StepTimer" type="Timer" parent="Sounds" unique_id=1338831286]
+wait_time = 0.5
+
 [connection signal="animation_finished" from="Animation/AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="animation_started" from="Animation/AnimationTree" to="." method="_on_animation_tree_animation_started"]
+[connection signal="timeout" from="Sounds/StepTimer" to="." method="_on_step_timer_timeout"]

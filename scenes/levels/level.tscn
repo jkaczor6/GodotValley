@@ -19,10 +19,17 @@
 [ext_resource type="PackedScene" uid="uid://d15cpo3boub5l" path="res://scenes/ui/shop_ui.tscn" id="16_qhnmj"]
 [ext_resource type="PackedScene" uid="uid://cvftyudk11fty" path="res://scenes/ui/resource_ui.tscn" id="17_jyre1"]
 [ext_resource type="Texture2D" uid="uid://fnmyohadow27" path="res://graphics/icons/delete.png" id="18_qhnmj"]
+[ext_resource type="AudioStream" uid="uid://cmmksm2j2lpov" path="res://audio/music.mp3" id="20_4ab0e"]
+[ext_resource type="AudioStream" uid="uid://cpi4s4v86b026" path="res://audio/rain.mp3" id="21_p62il"]
 
 [sub_resource type="Gradient" id="Gradient_ouxo3"]
 offsets = PackedFloat32Array(0, 0.2369146, 0.3966942, 1)
 colors = PackedColorArray(0.92941177, 0.8627451, 0.8156863, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.36862746, 0.46666667, 1, 1)
+
+[sub_resource type="Curve" id="Curve_4ab0e"]
+_limits = [-30.0, 0.7682021, 0.0, 1.0]
+_data = [Vector2(0, -14.09014), 0.0, 0.0, 0, 0, Vector2(0.2733813, -6.066635), 0.0, 0.0, 0, 0, Vector2(0.7050359, -6.066635), 2.0653093, 2.0653093, 0, 0, Vector2(1, -24.490982), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d4w6o"]
 texture = ExtResource("1_xb4v1")
@@ -906,6 +913,7 @@ anim_speed_max = 2.0
 script = ExtResource("1_urvlt")
 daytime_color = SubResource("Gradient_ouxo3")
 rain_color = Color(0.8156863, 0.8156863, 0.8156863, 1)
+volume_curve = SubResource("Curve_4ab0e")
 
 [node name="Layers" type="Node2D" parent="." unique_id=1077443371]
 
@@ -950,12 +958,15 @@ position = Vector2(180, 311)
 [node name="Character" parent="Objects" unique_id=1872849747 instance=ExtResource("11_mq31s")]
 position = Vector2(271, 398)
 dialog = Array[String](["I am the hat mouse", "State your business!"])
+fin_dialog = "You have purchased all the hats!"
 texture = ExtResource("12_5mi6g")
 shop_type = 1
+has_fin_animation = true
 
 [node name="Character2" parent="Objects" unique_id=1214557411 instance=ExtResource("11_mq31s")]
 position = Vector2(130, 395)
 dialog = Array[String](["I sell machines", "What would you like?"])
+fin_dialog = "You have purchased all the machines!"
 texture = ExtResource("13_b8j7q")
 
 [node name="Trees" type="Node2D" parent="Objects" unique_id=2027648653]
@@ -1357,12 +1368,12 @@ position = Vector2(-149, 481)
 
 [node name="SimpleObject3" parent="Objects/Decorations" unique_id=157085473 instance=ExtResource("8_ouxo3")]
 position = Vector2(31, 467)
-style = 0
 random = true
 
 [node name="SimpleObject4" parent="Objects/Decorations" unique_id=464652059 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(-36, 416)
-size = 3
+size = 0
 style = 0
 random = true
 
@@ -1378,12 +1389,17 @@ size = 3
 random = true
 
 [node name="SimpleObject10" parent="Objects/Decorations" unique_id=1588403882 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(72, 165)
+size = 1
 style = 0
 random = true
 
 [node name="SimpleObject11" parent="Objects/Decorations" unique_id=1290505264 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(192, 207)
+size = 1
+style = 0
 random = true
 
 [node name="SimpleObject13" parent="Objects/Decorations" unique_id=1771839642 instance=ExtResource("8_ouxo3")]
@@ -1394,25 +1410,28 @@ style = 0
 random = true
 
 [node name="SimpleObject14" parent="Objects/Decorations" unique_id=636422682 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(321, 278)
-size = 3
-style = 0
+size = 1
 random = true
 
 [node name="SimpleObject15" parent="Objects/Decorations" unique_id=919594699 instance=ExtResource("8_ouxo3")]
 z_index = -1
 position = Vector2(380, 364)
-size = 1
-random = true
-
-[node name="SimpleObject16" parent="Objects/Decorations" unique_id=259513319 instance=ExtResource("8_ouxo3")]
-position = Vector2(323, 442)
-size = 3
+size = 0
 style = 0
 random = true
 
+[node name="SimpleObject16" parent="Objects/Decorations" unique_id=259513319 instance=ExtResource("8_ouxo3")]
+z_index = -1
+position = Vector2(323, 442)
+size = 0
+random = true
+
 [node name="SimpleObject17" parent="Objects/Decorations" unique_id=1344727057 instance=ExtResource("8_ouxo3")]
+z_index = -1
 position = Vector2(195, 454)
+size = 1
 style = 0
 random = true
 
@@ -1422,16 +1441,12 @@ size = 3
 random = true
 
 [node name="SimpleObject6" parent="Objects/Decorations" unique_id=1459402825 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(-21, 300)
-size = 0
-style = 0
+size = 3
 random = true
 
 [node name="SimpleObject7" parent="Objects/Decorations" unique_id=1096386129 instance=ExtResource("8_ouxo3")]
-z_index = -1
 position = Vector2(-43, 276)
-size = 0
 style = 0
 random = true
 
@@ -1499,6 +1514,17 @@ position = Vector2(245, 235)
 
 [node name="Marker2D5" type="Marker2D" parent="BlobSpawnPositions" unique_id=1348181635]
 position = Vector2(54, 450)
+
+[node name="Music" type="Node2D" parent="." unique_id=1429046031]
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="Music" unique_id=175806340]
+stream = ExtResource("20_4ab0e")
+volume_db = -10.0
+autoplay = true
+
+[node name="Rain" type="AudioStreamPlayer" parent="Music" unique_id=1441704523]
+stream = ExtResource("21_p62il")
+volume_db = -20.0
 
 [connection signal="build" from="Objects/Player" to="." method="_on_player_build"]
 [connection signal="close_shop" from="Objects/Player" to="." method="_on_player_close_shop"]

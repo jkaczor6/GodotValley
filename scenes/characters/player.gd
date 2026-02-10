@@ -6,6 +6,13 @@ var speed := 50
 var can_move : bool = true
 @onready var move_state_machine = $Animation/AnimationTree.get("parameters/MoveStateMachine/playback")
 @onready var tool_state_machine = $Animation/AnimationTree.get("parameters/ToolStateMachine/playback")
+@onready var tool_sounds = {
+	Enum.Tool.AXE: $Sounds/Axe,
+	Enum.Tool.SWORD: $Sounds/Axe,
+	Enum.Tool.FISH: $Sounds/Fish,
+	Enum.Tool.HOE: $Sounds/Hoe,
+	Enum.Tool.SEED: $Sounds/Hoe,
+	Enum.Tool.WATER: $Sounds/Water}
 var current_tool: Enum.Tool = Enum.Tool.AXE
 var current_seed: Enum.Seed
 var current_state: Enum.State
@@ -41,6 +48,11 @@ func _physics_process(_delta: float) -> void:
 		last_direction = direction
 		var ray_y = int(direction.y) if not direction.x else 0
 		$RayCast2D.target_position = Vector2(direction.x, ray_y).normalized() * 20
+		
+		if not $Sounds/StepTimer.time_left:
+			$Sounds/StepTimer.start()
+	else:
+		$Sounds/StepTimer.stop()
 
 func get_fishing_input():
 	if Input.is_action_just_pressed("action"):
@@ -51,6 +63,7 @@ func get_basic_input():
 		var dir = Input.get_axis("tool_backward", "tool_forward")
 		current_tool = posmod(current_tool + int(dir), Enum.Tool.size()) as Enum.Tool
 		$ToolUI.reveal(true)
+		get_tree().get_first_node_in_group("ResourceUI").visible = current_tool == Enum.Tool.SEED
 		
 	if Input.is_action_just_pressed("seed_forward"):
 		current_seed = posmod(current_seed + 1, Enum.Seed.size()) as Enum.Seed
@@ -91,6 +104,7 @@ func get_building_input():
 func get_shopping_input():
 	if Input.is_action_just_pressed("ui_cancel"):
 		close_shop.emit()
+		get_tree().get_first_node_in_group("ResourceUI").hide()
 
 func move():
 	direction = Input.get_vector("left", "right", "up", "down")
@@ -112,6 +126,7 @@ func animate():
 
 func tool_use_emit():
 	tool_use.emit(current_tool, position + last_direction * 16 + Vector2(0,4))
+	tool_sounds[current_tool].play()
 
 func start_fishing():
 	$FishingGame.reveal()
@@ -138,3 +153,6 @@ func get_machine_coords() -> Vector2i:
 	coord.x += -1 if pos.x < 0 else 0
 	coord.y += -1 if pos.y < 0 else 0
 	return coord * Data.TILE_SIZE + Vector2i(8,8)
+
+func _on_step_timer_timeout() -> void:
+	$Sounds/Step.play()
