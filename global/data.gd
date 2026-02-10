@@ -42,6 +42,7 @@ const PLANT_DATA = {
 		'death_max': 3,
 		'reward': Enum.Item.WHEAT}}
 const MACHINE_UPGRADE_COST = {
+	Enum.Machine.DELETE: {},
 	Enum.Machine.SPRINKLER: {
 		'name': 'Sprinkler',
 		'cost' :{Enum.Item.TOMATO: 30, Enum.Item.WHEAT: 20},
@@ -61,6 +62,7 @@ const HOUSE_COST = {
 	1: {Enum.Item.WOOD: 30, Enum.Item.APPLE: 20},
 	2: {Enum.Item.WOOD: 40, Enum.Item.APPLE: 30}}
 const STYLE_UPGRADES = {
+	Enum.Style.BASIC: {},
 	Enum.Style.COWBOY: {
 		'name': 'Cowboy',
 		'cost':{Enum.Item.WOOD: 8, Enum.Item.CORN: 6},
@@ -96,3 +98,9 @@ const TOOL_STATE_ANIMATIONS = {
 	}
 
 var forecast_rain: bool
+var unlocked_styles: Array[Enum.Style] = [Enum.Style.BASIC]
+var unlocked_machines: Array[Enum.Machine] = [Enum.Machine.DELETE]
+var shop_connection = {
+	Enum.Shop.HAT: {'tracker': unlocked_styles, 'all': STYLE_UPGRADES.keys()},
+	Enum.Shop.MAIN: {'tracker': unlocked_machines, 'all': MACHINE_UPGRADE_COST.keys()},
+}

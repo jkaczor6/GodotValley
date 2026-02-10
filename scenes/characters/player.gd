@@ -17,6 +17,7 @@ signal diagnose
 signal day_change
 signal build(current_machine: Enum.Machine)
 signal machine_change(current_machine: Enum.Machine)
+signal close_shop
 
 func _physics_process(_delta: float) -> void:
 	match current_state:
@@ -31,6 +32,8 @@ func _physics_process(_delta: float) -> void:
 			get_building_input()
 			move()
 			animate()
+		Enum.State.SHOP:
+			get_shopping_input()
 
 	if direction:
 		last_direction = direction
@@ -67,6 +70,22 @@ func get_basic_input():
 	
 	if Input.is_action_just_pressed("build"):
 		current_state = Enum.State.BUILDING
+
+func get_building_input():
+	if Input.is_action_just_pressed("build"):
+		current_state = Enum.State.DEFAULT
+		
+	if Input.is_action_just_pressed("tool_forward") or Input.is_action_just_pressed("tool_backward"):
+		var dir = Input.get_axis("tool_backward", "tool_forward")
+		current_machine = posmod(current_machine + int(dir), Enum.Machine.size()) as Enum.Machine
+		machine_change.emit(current_machine)
+	
+	if Input.is_action_just_pressed("action"):
+		build.emit(current_machine)
+
+func get_shopping_input():
+	if Input.is_action_just_pressed("ui_cancel"):
+		close_shop.emit()
 
 func move():
 	direction = Input.get_vector("left", "right", "up", "down")
@@ -107,18 +126,6 @@ func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
 
 func day_change_emit():
 	day_change.emit()
-
-func get_building_input():
-	if Input.is_action_just_pressed("build"):
-		current_state = Enum.State.DEFAULT
-		
-	if Input.is_action_just_pressed("tool_forward") or Input.is_action_just_pressed("tool_backward"):
-		var dir = Input.get_axis("tool_backward", "tool_forward")
-		current_machine = posmod(current_machine + int(dir), Enum.Machine.size()) as Enum.Machine
-		machine_change.emit(current_machine)
-	
-	if Input.is_action_just_pressed("action"):
-		build.emit(current_machine)
 
 func get_machine_coords() -> Vector2i:
 	var pos = position + last_direction * 20 + Vector2(0, 8)

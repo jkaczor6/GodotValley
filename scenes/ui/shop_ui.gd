@@ -2,11 +2,21 @@ extends Control
 
 var shop_button_scene = preload("res://scenes/ui/shop_button.tscn")
 
-func _ready() -> void:
-	reveal(Enum.Shop.HAT)
+signal close
 
 func reveal(shop_type: Enum.Shop = Enum.Shop.HAT):
 	show()
-	for item_enum in Data.STYLE_UPGRADES if shop_type == Enum.Shop.HAT else Data.MACHINE_UPGRADE_COST:
-		var shop_button = shop_button_scene.instantiate()
-		shop_button.setup(shop_type, item_enum, $GridContainer)
+	for child in $GridContainer.get_children():
+		child.queue_free()
+	var unlocked = Data.shop_connection[shop_type]['tracker']
+	var all = Data.shop_connection[shop_type]['all']
+	var available = (unlocked + all).filter(func(x): return not(x in all and x in unlocked))
+	if available:
+		for item_enum in available:
+			var shop_button = shop_button_scene.instantiate()
+			shop_button.setup(shop_type, item_enum, $GridContainer)
+			shop_button.connect('press', reveal)
+		await get_tree().process_frame
+		$GridContainer.get_child(0).grab_focus()
+	else:
+		close.emit()

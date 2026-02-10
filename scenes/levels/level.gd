@@ -77,9 +77,15 @@ func _on_player_build(current_machine: int) -> void:
 
 func _on_player_machine_change(current_machine: int) -> void:
 	$Overlay/MachinePreviewSprite.texture = MACHINE_PREVIEW_TEXTURES[current_machine]['texture']
+
+func _on_player_close_shop() -> void:
+	$Overlay/CanvasLayer/ShopUI.hide()
+	player.current_state = Enum.State.DEFAULT
 	
 func _ready() -> void:
 	Data.forecast_rain = [true, false].pick_random()
+	for character in get_tree().get_nodes_in_group('Characters'):
+		character.connect('open_shop', open_shop)
 
 func _process(_delta: float) -> void:
 	var daytime_point = 1 - ($Timers/DayTimer.time_left / $Timers/DayTimer.wait_time)
@@ -137,3 +143,7 @@ func _on_blob_timer_timeout() -> void:
 	if plants:
 		var blob = blob_scene.instantiate()
 		blob.setup($BlobSpawnPositions.get_children().pick_random().position, plants.pick_random(), $Objects)
+
+func open_shop(shop_type: Enum.Shop):
+	$Overlay/CanvasLayer/ShopUI.reveal(shop_type)
+	player.current_state = Enum.State.SHOP
