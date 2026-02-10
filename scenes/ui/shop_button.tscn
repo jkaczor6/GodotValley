@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://cxu4j3ik5ybx7"]
+
+[ext_resource type="Theme" uid="uid://cgjrxl33c60gt" path="res://scenes/ui/game_theme.tres" id="1_8g3bp"]
+[ext_resource type="Script" uid="uid://5v205kkxb4fj" path="res://scenes/ui/shop_button.gd" id="2_ehfxd"]
+[ext_resource type="Texture2D" uid="uid://bldxvi5dvro6k" path="res://graphics/icons/apple.png" id="2_go8fd"]
+[ext_resource type="Texture2D" uid="uid://bsx0onkeirxbt" path="res://graphics/icons/corn.png" id="3_go8fd"]
+
+[node name="ShopButton" type="Button" unique_id=593959457]
+clip_children = 1
+custom_minimum_size = Vector2(200, 250)
+offset_left = 111.0
+offset_top = 50.0
+offset_right = 311.0
+offset_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_8g3bp")
+script = ExtResource("2_ehfxd")
+
+[node name="BG" type="Panel" parent="." unique_id=160843647]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=607791994]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer" unique_id=828902597]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.23137255, 1, 0.30980393, 1)
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ColorRect" unique_id=1231069496]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_go8fd")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=298710373]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1484578239]
+layout_mode = 2
+size_flags_vertical = 6
+text = "apple"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer/VBoxContainer" unique_id=1998583288]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/Control" unique_id=379096181]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/Control/HBoxContainer" unique_id=1040583523]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer" unique_id=1822499286]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_go8fd")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer" unique_id=1450599902]
+layout_mode = 2
+text = "5"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/Control/HBoxContainer" unique_id=784110294]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer2" unique_id=21438452]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_go8fd")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer2" unique_id=229791098]
+layout_mode = 2
+text = "5"
