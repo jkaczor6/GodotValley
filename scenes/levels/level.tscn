@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://da1u0rhfjt8a3" path="res://graphics/weather/drops.png" id="12_qogh7"]
 [ext_resource type="Texture2D" uid="uid://cn4s3loq3j21r" path="res://graphics/characters/cat.png" id="13_b8j7q"]
 [ext_resource type="PackedScene" uid="uid://d15cpo3boub5l" path="res://scenes/ui/shop_ui.tscn" id="16_qhnmj"]
+[ext_resource type="PackedScene" uid="uid://cvftyudk11fty" path="res://scenes/ui/resource_ui.tscn" id="17_jyre1"]
 [ext_resource type="Texture2D" uid="uid://fnmyohadow27" path="res://graphics/icons/delete.png" id="18_qhnmj"]
 
 [sub_resource type="Gradient" id="Gradient_ouxo3"]
@@ -943,171 +944,6 @@ y_sort_enabled = true
 [node name="Player" parent="Objects" unique_id=11379993 instance=ExtResource("2_b2cq8")]
 position = Vector2(186, 342)
 
-[node name="Tree" parent="Objects" unique_id=1155389888 instance=ExtResource("7_mbbpy")]
-position = Vector2(81, 191)
-
-[node name="Tree2" parent="Objects" unique_id=2007051204 instance=ExtResource("7_mbbpy")]
-position = Vector2(13, 218)
-
-[node name="Tree3" parent="Objects" unique_id=353042813 instance=ExtResource("7_mbbpy")]
-position = Vector2(-19, 236)
-
-[node name="Tree4" parent="Objects" unique_id=673939431 instance=ExtResource("7_mbbpy")]
-position = Vector2(14, 249)
-
-[node name="Tree5" parent="Objects" unique_id=1475364043 instance=ExtResource("7_mbbpy")]
-position = Vector2(-67, 311)
-
-[node name="Tree6" parent="Objects" unique_id=1399352638 instance=ExtResource("7_mbbpy")]
-position = Vector2(-50, 353)
-
-[node name="Tree7" parent="Objects" unique_id=675035068 instance=ExtResource("7_mbbpy")]
-position = Vector2(-33, 319)
-
-[node name="Tree8" parent="Objects" unique_id=1887421096 instance=ExtResource("7_mbbpy")]
-position = Vector2(-6, 439)
-
-[node name="Tree9" parent="Objects" unique_id=416924625 instance=ExtResource("7_mbbpy")]
-position = Vector2(122, 609)
-
-[node name="Tree12" parent="Objects" unique_id=7053331 instance=ExtResource("7_mbbpy")]
-position = Vector2(105, 493)
-
-[node name="Tree13" parent="Objects" unique_id=696069300 instance=ExtResource("7_mbbpy")]
-position = Vector2(120, 461)
-
-[node name="Tree14" parent="Objects" unique_id=571889147 instance=ExtResource("7_mbbpy")]
-position = Vector2(143, 494)
-
-[node name="Tree15" parent="Objects" unique_id=422343110 instance=ExtResource("7_mbbpy")]
-position = Vector2(164, 526)
-
-[node name="Tree16" parent="Objects" unique_id=959071938 instance=ExtResource("7_mbbpy")]
-position = Vector2(289, 483)
-
-[node name="Tree17" parent="Objects" unique_id=1537568821 instance=ExtResource("7_mbbpy")]
-position = Vector2(327, 494)
-
-[node name="Tree18" parent="Objects" unique_id=905292753 instance=ExtResource("7_mbbpy")]
-position = Vector2(410, 440)
-
-[node name="Tree19" parent="Objects" unique_id=186347886 instance=ExtResource("7_mbbpy")]
-position = Vector2(426, 394)
-
-[node name="Tree20" parent="Objects" unique_id=1070046450 instance=ExtResource("7_mbbpy")]
-position = Vector2(397, 297)
-
-[node name="Tree21" parent="Objects" unique_id=878749877 instance=ExtResource("7_mbbpy")]
-position = Vector2(369, 278)
-
-[node name="Tree22" parent="Objects" unique_id=220465409 instance=ExtResource("7_mbbpy")]
-position = Vector2(395, 267)
-
-[node name="Tree23" parent="Objects" unique_id=1200532280 instance=ExtResource("7_mbbpy")]
-position = Vector2(107, 155)
-
-[node name="Tree24" parent="Objects" unique_id=392332191 instance=ExtResource("7_mbbpy")]
-position = Vector2(150, 170)
-
-[node name="Tree25" parent="Objects" unique_id=711246695 instance=ExtResource("7_mbbpy")]
-position = Vector2(283, 243)
-
-[node name="Tree26" parent="Objects" unique_id=801260917 instance=ExtResource("7_mbbpy")]
-position = Vector2(58, 291)
-
-[node name="Tree27" parent="Objects" unique_id=264449727 instance=ExtResource("7_mbbpy")]
-position = Vector2(90, 386)
-
-[node name="Tree28" parent="Objects" unique_id=2119703160 instance=ExtResource("7_mbbpy")]
-position = Vector2(318, 391)
-
-[node name="Tree29" parent="Objects" unique_id=1513407085 instance=ExtResource("7_mbbpy")]
-position = Vector2(310, 314)
-
-[node name="Tree10" parent="Objects" unique_id=644774314 instance=ExtResource("7_mbbpy")]
-position = Vector2(-149, 481)
-
-[node name="Tree11" parent="Objects" unique_id=1304515572 instance=ExtResource("7_mbbpy")]
-position = Vector2(-149, 481)
-
-[node name="SimpleObject3" parent="Objects" unique_id=157085473 instance=ExtResource("8_ouxo3")]
-position = Vector2(31, 467)
-size = 3
-style = 0
-random = true
-
-[node name="SimpleObject4" parent="Objects" unique_id=464652059 instance=ExtResource("8_ouxo3")]
-position = Vector2(-36, 416)
-random = true
-
-[node name="SimpleObject5" parent="Objects" unique_id=351454795 instance=ExtResource("8_ouxo3")]
-z_index = -1
-position = Vector2(45, 201)
-size = 1
-random = true
-
-[node name="SimpleObject9" parent="Objects" unique_id=1161524051 instance=ExtResource("8_ouxo3")]
-position = Vector2(131, 213)
-size = 3
-style = 0
-random = true
-
-[node name="SimpleObject10" parent="Objects" unique_id=1588403882 instance=ExtResource("8_ouxo3")]
-z_index = -1
-position = Vector2(72, 165)
-size = 1
-random = true
-
-[node name="SimpleObject11" parent="Objects" unique_id=1290505264 instance=ExtResource("8_ouxo3")]
-z_index = -1
-position = Vector2(192, 207)
-size = 0
-style = 0
-random = true
-
-[node name="SimpleObject13" parent="Objects" unique_id=1771839642 instance=ExtResource("8_ouxo3")]
-position = Vector2(285, 349)
-size = 3
-random = true
-
-[node name="SimpleObject14" parent="Objects" unique_id=636422682 instance=ExtResource("8_ouxo3")]
-z_index = -1
-position = Vector2(321, 278)
-size = 0
-random = true
-
-[node name="SimpleObject15" parent="Objects" unique_id=919594699 instance=ExtResource("8_ouxo3")]
-z_index = -1
-position = Vector2(380, 364)
-size = 1
-random = true
-
-[node name="SimpleObject16" parent="Objects" unique_id=259513319 instance=ExtResource("8_ouxo3")]
-position = Vector2(323, 442)
-size = 3
-random = true
-
-[node name="SimpleObject17" parent="Objects" unique_id=1344727057 instance=ExtResource("8_ouxo3")]
-position = Vector2(195, 454)
-random = true
-
-[node name="SimpleObject18" parent="Objects" unique_id=1298932646 instance=ExtResource("8_ouxo3")]
-position = Vector2(247, 516)
-style = 0
-random = true
-
-[node name="SimpleObject6" parent="Objects" unique_id=1459402825 instance=ExtResource("8_ouxo3")]
-position = Vector2(-21, 300)
-style = 0
-random = true
-
-[node name="SimpleObject7" parent="Objects" unique_id=1096386129 instance=ExtResource("8_ouxo3")]
-z_index = -1
-position = Vector2(-43, 276)
-size = 0
-style = 0
-random = true
-
 [node name="House" parent="Objects" unique_id=1690231218 instance=ExtResource("10_qogh7")]
 position = Vector2(180, 311)
 
@@ -1121,6 +957,483 @@ shop_type = 1
 position = Vector2(130, 395)
 dialog = Array[String](["I sell machines", "What would you like?"])
 texture = ExtResource("13_b8j7q")
+
+[node name="Trees" type="Node2D" parent="Objects" unique_id=2027648653]
+
+[node name="Tree" parent="Objects/Trees" unique_id=1155389888 instance=ExtResource("7_mbbpy")]
+position = Vector2(81, 191)
+
+[node name="Tree2" parent="Objects/Trees" unique_id=2007051204 instance=ExtResource("7_mbbpy")]
+position = Vector2(13, 218)
+
+[node name="Tree3" parent="Objects/Trees" unique_id=353042813 instance=ExtResource("7_mbbpy")]
+position = Vector2(-19, 236)
+
+[node name="Tree4" parent="Objects/Trees" unique_id=673939431 instance=ExtResource("7_mbbpy")]
+position = Vector2(14, 249)
+
+[node name="Tree5" parent="Objects/Trees" unique_id=1475364043 instance=ExtResource("7_mbbpy")]
+position = Vector2(-67, 311)
+
+[node name="Tree6" parent="Objects/Trees" unique_id=1399352638 instance=ExtResource("7_mbbpy")]
+position = Vector2(-50, 353)
+
+[node name="Tree7" parent="Objects/Trees" unique_id=675035068 instance=ExtResource("7_mbbpy")]
+position = Vector2(-33, 319)
+
+[node name="Tree8" parent="Objects/Trees" unique_id=1887421096 instance=ExtResource("7_mbbpy")]
+position = Vector2(-6, 439)
+
+[node name="Tree9" parent="Objects/Trees" unique_id=416924625 instance=ExtResource("7_mbbpy")]
+position = Vector2(122, 609)
+
+[node name="Tree12" parent="Objects/Trees" unique_id=7053331 instance=ExtResource("7_mbbpy")]
+position = Vector2(105, 493)
+
+[node name="Tree13" parent="Objects/Trees" unique_id=696069300 instance=ExtResource("7_mbbpy")]
+position = Vector2(120, 461)
+
+[node name="Tree14" parent="Objects/Trees" unique_id=571889147 instance=ExtResource("7_mbbpy")]
+position = Vector2(143, 494)
+
+[node name="Tree15" parent="Objects/Trees" unique_id=422343110 instance=ExtResource("7_mbbpy")]
+position = Vector2(164, 526)
+
+[node name="Tree16" parent="Objects/Trees" unique_id=959071938 instance=ExtResource("7_mbbpy")]
+position = Vector2(289, 483)
+
+[node name="Tree17" parent="Objects/Trees" unique_id=1537568821 instance=ExtResource("7_mbbpy")]
+position = Vector2(327, 494)
+
+[node name="Tree18" parent="Objects/Trees" unique_id=905292753 instance=ExtResource("7_mbbpy")]
+position = Vector2(410, 440)
+
+[node name="Tree19" parent="Objects/Trees" unique_id=186347886 instance=ExtResource("7_mbbpy")]
+position = Vector2(426, 394)
+
+[node name="Tree20" parent="Objects/Trees" unique_id=1070046450 instance=ExtResource("7_mbbpy")]
+position = Vector2(397, 297)
+
+[node name="Tree21" parent="Objects/Trees" unique_id=878749877 instance=ExtResource("7_mbbpy")]
+position = Vector2(369, 278)
+
+[node name="Tree22" parent="Objects/Trees" unique_id=220465409 instance=ExtResource("7_mbbpy")]
+position = Vector2(395, 267)
+
+[node name="Tree30" parent="Objects/Trees" unique_id=1478770748 instance=ExtResource("7_mbbpy")]
+position = Vector2(305, 114)
+
+[node name="Tree31" parent="Objects/Trees" unique_id=1391418103 instance=ExtResource("7_mbbpy")]
+position = Vector2(277, 95)
+
+[node name="Tree32" parent="Objects/Trees" unique_id=80290878 instance=ExtResource("7_mbbpy")]
+position = Vector2(303, 84)
+
+[node name="Tree33" parent="Objects/Trees" unique_id=853083725 instance=ExtResource("7_mbbpy")]
+position = Vector2(367, 149)
+
+[node name="Tree34" parent="Objects/Trees" unique_id=2005588422 instance=ExtResource("7_mbbpy")]
+position = Vector2(339, 130)
+
+[node name="Tree35" parent="Objects/Trees" unique_id=706726825 instance=ExtResource("7_mbbpy")]
+position = Vector2(365, 119)
+
+[node name="Tree36" parent="Objects/Trees" unique_id=626969751 instance=ExtResource("7_mbbpy")]
+position = Vector2(396, 110)
+
+[node name="Tree37" parent="Objects/Trees" unique_id=1573548773 instance=ExtResource("7_mbbpy")]
+position = Vector2(368, 91)
+
+[node name="Tree38" parent="Objects/Trees" unique_id=785942943 instance=ExtResource("7_mbbpy")]
+position = Vector2(394, 80)
+
+[node name="Tree39" parent="Objects/Trees" unique_id=1658158785 instance=ExtResource("7_mbbpy")]
+position = Vector2(428, 160)
+
+[node name="Tree40" parent="Objects/Trees" unique_id=1068031708 instance=ExtResource("7_mbbpy")]
+position = Vector2(400, 141)
+
+[node name="Tree41" parent="Objects/Trees" unique_id=2011086895 instance=ExtResource("7_mbbpy")]
+position = Vector2(426, 130)
+
+[node name="Tree42" parent="Objects/Trees" unique_id=2125125315 instance=ExtResource("7_mbbpy")]
+position = Vector2(487, 201)
+
+[node name="Tree43" parent="Objects/Trees" unique_id=1043184614 instance=ExtResource("7_mbbpy")]
+position = Vector2(459, 182)
+
+[node name="Tree44" parent="Objects/Trees" unique_id=196041638 instance=ExtResource("7_mbbpy")]
+position = Vector2(485, 171)
+
+[node name="Tree45" parent="Objects/Trees" unique_id=1991553323 instance=ExtResource("7_mbbpy")]
+position = Vector2(462, 127)
+
+[node name="Tree46" parent="Objects/Trees" unique_id=1216002098 instance=ExtResource("7_mbbpy")]
+position = Vector2(434, 108)
+
+[node name="Tree47" parent="Objects/Trees" unique_id=67267985 instance=ExtResource("7_mbbpy")]
+position = Vector2(460, 97)
+
+[node name="Tree48" parent="Objects/Trees" unique_id=91163314 instance=ExtResource("7_mbbpy")]
+position = Vector2(430, 74)
+
+[node name="Tree49" parent="Objects/Trees" unique_id=99098218 instance=ExtResource("7_mbbpy")]
+position = Vector2(402, 55)
+
+[node name="Tree50" parent="Objects/Trees" unique_id=1744774846 instance=ExtResource("7_mbbpy")]
+position = Vector2(428, 44)
+
+[node name="Tree51" parent="Objects/Trees" unique_id=359803390 instance=ExtResource("7_mbbpy")]
+position = Vector2(342, 82)
+
+[node name="Tree52" parent="Objects/Trees" unique_id=1047071005 instance=ExtResource("7_mbbpy")]
+position = Vector2(314, 63)
+
+[node name="Tree53" parent="Objects/Trees" unique_id=340424915 instance=ExtResource("7_mbbpy")]
+position = Vector2(340, 52)
+
+[node name="Tree54" parent="Objects/Trees" unique_id=727521287 instance=ExtResource("7_mbbpy")]
+position = Vector2(492, 44)
+
+[node name="Tree55" parent="Objects/Trees" unique_id=1007466436 instance=ExtResource("7_mbbpy")]
+position = Vector2(464, 25)
+
+[node name="Tree56" parent="Objects/Trees" unique_id=2046685649 instance=ExtResource("7_mbbpy")]
+position = Vector2(490, 14)
+
+[node name="Tree57" parent="Objects/Trees" unique_id=982061070 instance=ExtResource("7_mbbpy")]
+position = Vector2(523, 158)
+
+[node name="Tree58" parent="Objects/Trees" unique_id=148935829 instance=ExtResource("7_mbbpy")]
+position = Vector2(495, 139)
+
+[node name="Tree59" parent="Objects/Trees" unique_id=2116596795 instance=ExtResource("7_mbbpy")]
+position = Vector2(521, 128)
+
+[node name="Tree60" parent="Objects/Trees" unique_id=57852223 instance=ExtResource("7_mbbpy")]
+position = Vector2(555, 223)
+
+[node name="Tree61" parent="Objects/Trees" unique_id=1130481237 instance=ExtResource("7_mbbpy")]
+position = Vector2(527, 204)
+
+[node name="Tree62" parent="Objects/Trees" unique_id=683690684 instance=ExtResource("7_mbbpy")]
+position = Vector2(553, 193)
+
+[node name="Tree63" parent="Objects/Trees" unique_id=2143921220 instance=ExtResource("7_mbbpy")]
+position = Vector2(643, 113)
+
+[node name="Tree64" parent="Objects/Trees" unique_id=1509004735 instance=ExtResource("7_mbbpy")]
+position = Vector2(613, 90)
+
+[node name="Tree65" parent="Objects/Trees" unique_id=1847811638 instance=ExtResource("7_mbbpy")]
+position = Vector2(585, 71)
+
+[node name="Tree66" parent="Objects/Trees" unique_id=890649539 instance=ExtResource("7_mbbpy")]
+position = Vector2(611, 60)
+
+[node name="Tree67" parent="Objects/Trees" unique_id=1811162826 instance=ExtResource("7_mbbpy")]
+position = Vector2(525, 98)
+
+[node name="Tree68" parent="Objects/Trees" unique_id=765951465 instance=ExtResource("7_mbbpy")]
+position = Vector2(497, 79)
+
+[node name="Tree69" parent="Objects/Trees" unique_id=383930767 instance=ExtResource("7_mbbpy")]
+position = Vector2(523, 68)
+
+[node name="Tree70" parent="Objects/Trees" unique_id=76290330 instance=ExtResource("7_mbbpy")]
+position = Vector2(675, 60)
+
+[node name="Tree71" parent="Objects/Trees" unique_id=2072652535 instance=ExtResource("7_mbbpy")]
+position = Vector2(647, 41)
+
+[node name="Tree72" parent="Objects/Trees" unique_id=693723019 instance=ExtResource("7_mbbpy")]
+position = Vector2(673, 30)
+
+[node name="Tree73" parent="Objects/Trees" unique_id=765168424 instance=ExtResource("7_mbbpy")]
+position = Vector2(706, 174)
+
+[node name="Tree74" parent="Objects/Trees" unique_id=1146820057 instance=ExtResource("7_mbbpy")]
+position = Vector2(678, 155)
+
+[node name="Tree75" parent="Objects/Trees" unique_id=1156910445 instance=ExtResource("7_mbbpy")]
+position = Vector2(704, 144)
+
+[node name="Tree76" parent="Objects/Trees" unique_id=1840474191 instance=ExtResource("7_mbbpy")]
+position = Vector2(738, 239)
+
+[node name="Tree77" parent="Objects/Trees" unique_id=2012614925 instance=ExtResource("7_mbbpy")]
+position = Vector2(710, 220)
+
+[node name="Tree78" parent="Objects/Trees" unique_id=2107432596 instance=ExtResource("7_mbbpy")]
+position = Vector2(736, 209)
+
+[node name="Tree79" parent="Objects/Trees" unique_id=1439423338 instance=ExtResource("7_mbbpy")]
+position = Vector2(569, 136)
+
+[node name="Tree80" parent="Objects/Trees" unique_id=1008336660 instance=ExtResource("7_mbbpy")]
+position = Vector2(595, 125)
+
+[node name="Tree81" parent="Objects/Trees" unique_id=1115534847 instance=ExtResource("7_mbbpy")]
+position = Vector2(628, 269)
+
+[node name="Tree82" parent="Objects/Trees" unique_id=405073326 instance=ExtResource("7_mbbpy")]
+position = Vector2(600, 250)
+
+[node name="Tree83" parent="Objects/Trees" unique_id=1429703007 instance=ExtResource("7_mbbpy")]
+position = Vector2(626, 239)
+
+[node name="Tree84" parent="Objects/Trees" unique_id=1077375096 instance=ExtResource("7_mbbpy")]
+position = Vector2(660, 334)
+
+[node name="Tree85" parent="Objects/Trees" unique_id=924434175 instance=ExtResource("7_mbbpy")]
+position = Vector2(632, 315)
+
+[node name="Tree86" parent="Objects/Trees" unique_id=382707203 instance=ExtResource("7_mbbpy")]
+position = Vector2(658, 304)
+
+[node name="Tree87" parent="Objects/Trees" unique_id=198914855 instance=ExtResource("7_mbbpy")]
+position = Vector2(567, 281)
+
+[node name="Tree88" parent="Objects/Trees" unique_id=700731510 instance=ExtResource("7_mbbpy")]
+position = Vector2(539, 262)
+
+[node name="Tree89" parent="Objects/Trees" unique_id=1591802780 instance=ExtResource("7_mbbpy")]
+position = Vector2(565, 251)
+
+[node name="Tree90" parent="Objects/Trees" unique_id=1864126542 instance=ExtResource("7_mbbpy")]
+position = Vector2(599, 346)
+
+[node name="Tree91" parent="Objects/Trees" unique_id=189368290 instance=ExtResource("7_mbbpy")]
+position = Vector2(571, 327)
+
+[node name="Tree92" parent="Objects/Trees" unique_id=981889352 instance=ExtResource("7_mbbpy")]
+position = Vector2(597, 316)
+
+[node name="Tree93" parent="Objects/Trees" unique_id=1282003013 instance=ExtResource("7_mbbpy")]
+position = Vector2(531, 322)
+
+[node name="Tree94" parent="Objects/Trees" unique_id=2114754785 instance=ExtResource("7_mbbpy")]
+position = Vector2(503, 303)
+
+[node name="Tree95" parent="Objects/Trees" unique_id=1836849756 instance=ExtResource("7_mbbpy")]
+position = Vector2(529, 292)
+
+[node name="Tree96" parent="Objects/Trees" unique_id=1160992213 instance=ExtResource("7_mbbpy")]
+position = Vector2(563, 387)
+
+[node name="Tree97" parent="Objects/Trees" unique_id=671059459 instance=ExtResource("7_mbbpy")]
+position = Vector2(535, 368)
+
+[node name="Tree98" parent="Objects/Trees" unique_id=1914514804 instance=ExtResource("7_mbbpy")]
+position = Vector2(561, 357)
+
+[node name="Tree99" parent="Objects/Trees" unique_id=1703978229 instance=ExtResource("7_mbbpy")]
+position = Vector2(662, 220)
+
+[node name="Tree100" parent="Objects/Trees" unique_id=826489783 instance=ExtResource("7_mbbpy")]
+position = Vector2(634, 201)
+
+[node name="Tree101" parent="Objects/Trees" unique_id=1784734741 instance=ExtResource("7_mbbpy")]
+position = Vector2(660, 190)
+
+[node name="Tree102" parent="Objects/Trees" unique_id=460156580 instance=ExtResource("7_mbbpy")]
+position = Vector2(694, 285)
+
+[node name="Tree103" parent="Objects/Trees" unique_id=954412112 instance=ExtResource("7_mbbpy")]
+position = Vector2(666, 266)
+
+[node name="Tree104" parent="Objects/Trees" unique_id=1431930655 instance=ExtResource("7_mbbpy")]
+position = Vector2(692, 255)
+
+[node name="Tree105" parent="Objects/Trees" unique_id=1443650668 instance=ExtResource("7_mbbpy")]
+position = Vector2(735, 126)
+
+[node name="Tree106" parent="Objects/Trees" unique_id=1369659116 instance=ExtResource("7_mbbpy")]
+position = Vector2(707, 107)
+
+[node name="Tree107" parent="Objects/Trees" unique_id=107969720 instance=ExtResource("7_mbbpy")]
+position = Vector2(733, 96)
+
+[node name="Tree108" parent="Objects/Trees" unique_id=1567753745 instance=ExtResource("7_mbbpy")]
+position = Vector2(767, 191)
+
+[node name="Tree109" parent="Objects/Trees" unique_id=1466527903 instance=ExtResource("7_mbbpy")]
+position = Vector2(739, 172)
+
+[node name="Tree110" parent="Objects/Trees" unique_id=1278750104 instance=ExtResource("7_mbbpy")]
+position = Vector2(765, 161)
+
+[node name="Tree111" parent="Objects/Trees" unique_id=185454513 instance=ExtResource("7_mbbpy")]
+position = Vector2(590, 186)
+
+[node name="Tree112" parent="Objects/Trees" unique_id=657530805 instance=ExtResource("7_mbbpy")]
+position = Vector2(562, 167)
+
+[node name="Tree120" parent="Objects/Trees" unique_id=1701431544 instance=ExtResource("7_mbbpy")]
+position = Vector2(581, 97)
+
+[node name="Tree121" parent="Objects/Trees" unique_id=755667711 instance=ExtResource("7_mbbpy")]
+position = Vector2(553, 78)
+
+[node name="Tree122" parent="Objects/Trees" unique_id=977582251 instance=ExtResource("7_mbbpy")]
+position = Vector2(613, 26)
+
+[node name="Tree123" parent="Objects/Trees" unique_id=1393559682 instance=ExtResource("7_mbbpy")]
+position = Vector2(585, 7)
+
+[node name="Tree124" parent="Objects/Trees" unique_id=2111149390 instance=ExtResource("7_mbbpy")]
+position = Vector2(678, 98)
+
+[node name="Tree126" parent="Objects/Trees" unique_id=1500045046 instance=ExtResource("7_mbbpy")]
+position = Vector2(626, 142)
+
+[node name="Tree127" parent="Objects/Trees" unique_id=558004757 instance=ExtResource("7_mbbpy")]
+position = Vector2(631, 169)
+
+[node name="Tree128" parent="Objects/Trees" unique_id=1888996374 instance=ExtResource("7_mbbpy")]
+position = Vector2(599, 213)
+
+[node name="Tree129" parent="Objects/Trees" unique_id=641293282 instance=ExtResource("7_mbbpy")]
+position = Vector2(599, 282)
+
+[node name="Tree130" parent="Objects/Trees" unique_id=601411018 instance=ExtResource("7_mbbpy")]
+position = Vector2(735, 272)
+
+[node name="Tree131" parent="Objects/Trees" unique_id=1935224295 instance=ExtResource("7_mbbpy")]
+position = Vector2(503, 345)
+
+[node name="Tree125" parent="Objects/Trees" unique_id=1730885005 instance=ExtResource("7_mbbpy")]
+position = Vector2(650, 79)
+
+[node name="Tree113" parent="Objects/Trees" unique_id=1161560297 instance=ExtResource("7_mbbpy")]
+position = Vector2(588, 156)
+
+[node name="Tree114" parent="Objects/Trees" unique_id=2089498491 instance=ExtResource("7_mbbpy")]
+position = Vector2(550, 43)
+
+[node name="Tree115" parent="Objects/Trees" unique_id=1511350834 instance=ExtResource("7_mbbpy")]
+position = Vector2(522, 24)
+
+[node name="Tree116" parent="Objects/Trees" unique_id=1129328528 instance=ExtResource("7_mbbpy")]
+position = Vector2(548, 13)
+
+[node name="Tree117" parent="Objects/Trees" unique_id=1210821779 instance=ExtResource("7_mbbpy")]
+position = Vector2(733, 63)
+
+[node name="Tree118" parent="Objects/Trees" unique_id=1576047658 instance=ExtResource("7_mbbpy")]
+position = Vector2(705, 44)
+
+[node name="Tree119" parent="Objects/Trees" unique_id=972242042 instance=ExtResource("7_mbbpy")]
+position = Vector2(731, 33)
+
+[node name="Tree23" parent="Objects/Trees" unique_id=1200532280 instance=ExtResource("7_mbbpy")]
+position = Vector2(107, 155)
+
+[node name="Tree24" parent="Objects/Trees" unique_id=392332191 instance=ExtResource("7_mbbpy")]
+position = Vector2(150, 170)
+
+[node name="Tree25" parent="Objects/Trees" unique_id=711246695 instance=ExtResource("7_mbbpy")]
+position = Vector2(283, 243)
+
+[node name="Tree26" parent="Objects/Trees" unique_id=801260917 instance=ExtResource("7_mbbpy")]
+position = Vector2(58, 291)
+
+[node name="Tree27" parent="Objects/Trees" unique_id=264449727 instance=ExtResource("7_mbbpy")]
+position = Vector2(90, 386)
+
+[node name="Tree28" parent="Objects/Trees" unique_id=2119703160 instance=ExtResource("7_mbbpy")]
+position = Vector2(318, 391)
+
+[node name="Tree29" parent="Objects/Trees" unique_id=1513407085 instance=ExtResource("7_mbbpy")]
+position = Vector2(310, 314)
+
+[node name="Tree10" parent="Objects/Trees" unique_id=644774314 instance=ExtResource("7_mbbpy")]
+position = Vector2(-149, 481)
+
+[node name="Tree11" parent="Objects/Trees" unique_id=1304515572 instance=ExtResource("7_mbbpy")]
+position = Vector2(-149, 481)
+
+[node name="Decorations" type="Node2D" parent="Objects" unique_id=1625008792]
+
+[node name="SimpleObject3" parent="Objects/Decorations" unique_id=157085473 instance=ExtResource("8_ouxo3")]
+position = Vector2(31, 467)
+style = 0
+random = true
+
+[node name="SimpleObject4" parent="Objects/Decorations" unique_id=464652059 instance=ExtResource("8_ouxo3")]
+position = Vector2(-36, 416)
+size = 3
+style = 0
+random = true
+
+[node name="SimpleObject5" parent="Objects/Decorations" unique_id=351454795 instance=ExtResource("8_ouxo3")]
+position = Vector2(45, 201)
+size = 3
+style = 0
+random = true
+
+[node name="SimpleObject9" parent="Objects/Decorations" unique_id=1161524051 instance=ExtResource("8_ouxo3")]
+position = Vector2(131, 213)
+size = 3
+random = true
+
+[node name="SimpleObject10" parent="Objects/Decorations" unique_id=1588403882 instance=ExtResource("8_ouxo3")]
+position = Vector2(72, 165)
+style = 0
+random = true
+
+[node name="SimpleObject11" parent="Objects/Decorations" unique_id=1290505264 instance=ExtResource("8_ouxo3")]
+position = Vector2(192, 207)
+random = true
+
+[node name="SimpleObject13" parent="Objects/Decorations" unique_id=1771839642 instance=ExtResource("8_ouxo3")]
+z_index = -1
+position = Vector2(285, 349)
+size = 0
+style = 0
+random = true
+
+[node name="SimpleObject14" parent="Objects/Decorations" unique_id=636422682 instance=ExtResource("8_ouxo3")]
+position = Vector2(321, 278)
+size = 3
+style = 0
+random = true
+
+[node name="SimpleObject15" parent="Objects/Decorations" unique_id=919594699 instance=ExtResource("8_ouxo3")]
+z_index = -1
+position = Vector2(380, 364)
+size = 1
+random = true
+
+[node name="SimpleObject16" parent="Objects/Decorations" unique_id=259513319 instance=ExtResource("8_ouxo3")]
+position = Vector2(323, 442)
+size = 3
+style = 0
+random = true
+
+[node name="SimpleObject17" parent="Objects/Decorations" unique_id=1344727057 instance=ExtResource("8_ouxo3")]
+position = Vector2(195, 454)
+style = 0
+random = true
+
+[node name="SimpleObject18" parent="Objects/Decorations" unique_id=1298932646 instance=ExtResource("8_ouxo3")]
+position = Vector2(247, 516)
+size = 3
+random = true
+
+[node name="SimpleObject6" parent="Objects/Decorations" unique_id=1459402825 instance=ExtResource("8_ouxo3")]
+z_index = -1
+position = Vector2(-21, 300)
+size = 0
+style = 0
+random = true
+
+[node name="SimpleObject7" parent="Objects/Decorations" unique_id=1096386129 instance=ExtResource("8_ouxo3")]
+z_index = -1
+position = Vector2(-43, 276)
+size = 0
+style = 0
+random = true
 
 [node name="Overlay" type="Node2D" parent="." unique_id=234068868]
 
@@ -1145,6 +1458,8 @@ color = Color(0.023529412, 0.023529412, 0.023529412, 1)
 visible = false
 
 [node name="ShopUI" parent="Overlay/CanvasLayer" unique_id=844666306 instance=ExtResource("16_qhnmj")]
+
+[node name="ResourceUI" parent="Overlay/CanvasLayer" unique_id=1642898869 instance=ExtResource("17_jyre1")]
 
 [node name="RainDropsParticles" type="GPUParticles2D" parent="Overlay" unique_id=1334977724]
 material = SubResource("CanvasItemMaterial_5mi6g")

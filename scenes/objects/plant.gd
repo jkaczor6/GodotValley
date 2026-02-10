@@ -19,12 +19,12 @@ func grow(watered: bool):
 	else:
 		res.decay(self)
 
-
 func _on_collision_area_body_entered(_body: Node2D) -> void:
 	if res.get_complete():
 		$FlashSprite2D.flash(0.2, 0.4, queue_free)
 		death.emit(coord)
 		res.dead = true
+		Data.change_item(res.reward, randi_range(2,4))
 
 func damage():
 	res.damage()

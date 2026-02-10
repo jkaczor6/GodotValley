@@ -102,5 +102,16 @@ var unlocked_styles: Array[Enum.Style] = [Enum.Style.BASIC]
 var unlocked_machines: Array[Enum.Machine] = [Enum.Machine.DELETE]
 var shop_connection = {
 	Enum.Shop.HAT: {'tracker': unlocked_styles, 'all': STYLE_UPGRADES.keys()},
-	Enum.Shop.MAIN: {'tracker': unlocked_machines, 'all': MACHINE_UPGRADE_COST.keys()},
-}
+	Enum.Shop.MAIN: {'tracker': unlocked_machines, 'all': MACHINE_UPGRADE_COST.keys()}}
+var items = {
+	Enum.Item.WOOD: 0,
+	Enum.Item.APPLE: 0,
+	Enum.Item.FISH: 0,
+	Enum.Item.CORN: 1,
+	Enum.Item.WHEAT: 1,
+	Enum.Item.PUMPKIN: 1,
+	Enum.Item.TOMATO: 1}
+
+func change_item(item: Enum.Item, amount: int = 1):
+	items[item] += amount
+	get_tree().get_first_node_in_group("ResourceUI").reveal()
