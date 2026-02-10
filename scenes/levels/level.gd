@@ -80,7 +80,6 @@ func _on_player_machine_change(current_machine: int) -> void:
 	
 func _ready() -> void:
 	Data.forecast_rain = [true, false].pick_random()
-	$Objects/Scarecrow.connect("shoot_projectile", create_projectile)
 
 func _process(_delta: float) -> void:
 	var daytime_point = 1 - ($Timers/DayTimer.time_left / $Timers/DayTimer.wait_time)
